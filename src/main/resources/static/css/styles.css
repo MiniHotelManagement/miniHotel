@@ -1,0 +1,35 @@
+
+/*css for index.html*/
+    #buttonArea{
+
+        margin: 0 auto;
+        border-radius: 20px;
+        width: 70%;
+        height:300px;
+    }
+
+/*css for guest.html*/
+    #navbarLogo{
+        color: #ffffff;
+        padding-top: 20px;
+    }
+
+    .room{
+        float: left;
+        border-radius: 20px;
+        width:40%;
+        height: 400px;
+        margin-top: 40px;
+        margin-left: 60px;
+    }
+
+    #reserveRoom{
+        height: 550px;
+    }
+
+
+/*global css*/
+.clear{
+    clear: both;
+}
+
