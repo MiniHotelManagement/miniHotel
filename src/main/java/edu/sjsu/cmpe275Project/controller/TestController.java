@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 /**
  * Created by emy on 11/15/15.
  */
+//dummy controller for now...
 @Controller
 public class TestController {
 
