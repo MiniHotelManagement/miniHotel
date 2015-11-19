@@ -19,13 +19,13 @@ import java.util.Properties;
 @Configuration
 public class DBConfig {
 
-    @Value("${db.driver}")
+    @Value("${spring.datasource.driver-class-name}")
     private String db_driver;
-    @Value("${db.password}")
+    @Value("${spring.datasource.password}")
     private String db_password;
-    @Value("${db.url}")
+    @Value("${spring.datasource.url}")
     private String db_url;
-    @Value("${db.username}")
+    @Value("${spring.datasource.username}")
     private String db_username;
 
     //hibernate

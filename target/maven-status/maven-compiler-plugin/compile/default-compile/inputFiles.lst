@@ -1,8 +1,8 @@
-/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/GuestModel/Address.java
-/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/GuestModel/User.java
-/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/controller/TestController.java
+/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/models/Address.java
+/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/main/MainApplication.java
+/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/controller/guestController.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/configs/DBConfig.java
+/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/models/Room.java
+/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/models/Guest.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/configs/SecurityConfig.java
-/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/Main/MainApplication.java
-/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/GuestModel/Guest.java
-/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/StaffAndRoomModels/Room.java
+/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/controller/staffControllers.java
