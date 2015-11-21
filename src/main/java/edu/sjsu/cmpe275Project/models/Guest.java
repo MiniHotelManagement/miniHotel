@@ -1,10 +1,7 @@
 package edu.sjsu.cmpe275Project.models;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 /**
  * Created by emy on 11/15/15.
@@ -19,11 +16,20 @@ public class Guest implements java.io.Serializable {
     @Id
     @GeneratedValue
     private long id;
+
+    @Column(name="FirstName", nullable = false)
     private String firstName;
+    @Column(name="LastName", nullable = false)
     private String lastName;
+    @Column(name="email", nullable = false)
     private String email;
+    @Column(name="d_License", nullable = false)
     private String driversLicense;
+
+    @Embedded
     private Address address;
+
+    public Guest() {}
 
     public Address getAddress() {
         return address;

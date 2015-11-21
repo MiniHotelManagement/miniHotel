@@ -1,8 +1,11 @@
 package edu.sjsu.cmpe275Project.models;
 
+import javax.persistence.Embeddable;
+
 /**
  * Created by emy on 11/15/15.
  */
+@Embeddable
 public class Address implements java.io.Serializable {
 
     private static final long serialVersionUID = 5L;
