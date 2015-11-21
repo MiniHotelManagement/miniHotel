@@ -1,12 +1,23 @@
 package edu.sjsu.cmpe275Project.models;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
  * Created by emy on 11/15/15.
  */
+
+@Entity
+@Table(name="guest")
 public class Guest implements java.io.Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue
     private long id;
     private String firstName;
     private String lastName;

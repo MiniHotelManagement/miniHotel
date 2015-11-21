@@ -19,13 +19,13 @@ import java.util.Properties;
 @Configuration
 public class DBConfig {
 
-    @Value("${spring.datasource.driver-class-name}")
+   @Value("${db.driver}")
     private String db_driver;
-    @Value("${spring.datasource.password}")
+    @Value("${db.password}")
     private String db_password;
-    @Value("${spring.datasource.url}")
+    @Value("${db.url}")
     private String db_url;
-    @Value("${spring.datasource.username}")
+    @Value("${db.username}")
     private String db_username;
 
     //hibernate
@@ -35,6 +35,9 @@ public class DBConfig {
     private String hb_show_sql;
     @Value("${hibernate.hbm2ddl.auto}")
     private String hb_hbm2ddl;
+
+    @Value("${entitymanager.packagesToScan}")
+    private String packageModels;
 
     @Bean(name="datasource")
     public DataSource dataSource() {
@@ -51,6 +54,7 @@ public class DBConfig {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
         localSessionFactoryBean.setDataSource(dataSource());
+        localSessionFactoryBean.setPackagesToScan(packageModels);
         Properties properties = new Properties();
         properties.put("hibernate.dialect", hb_dialect);
         properties.put("hibernate.hbm2ddl.auto", hb_hbm2ddl);
