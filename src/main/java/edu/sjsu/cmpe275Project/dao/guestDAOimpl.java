@@ -53,6 +53,8 @@ public class guestDAOimpl implements guestDAO {
 
     @Override
     public Guest findById(Long id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        Guest guest = (Guest)session.get(Guest.class, id);
+        return guest;
     }
 }

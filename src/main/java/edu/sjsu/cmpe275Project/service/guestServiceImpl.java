@@ -34,6 +34,7 @@ public class guestServiceImpl implements guestService {
 
     @Override
     public Guest findById(Long id) {
-        return null;
+        Guest guest = guestdao.findById(id);
+        return guest;
     }
 }

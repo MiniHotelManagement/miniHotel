@@ -28,11 +28,19 @@ public class TestController {
         System.out.println("HH");
         return "index";
     }
+    //example and works
     @RequestMapping(value="/person", method = RequestMethod.POST)
     @ResponseBody
     public Guest meme(@RequestBody Guest guest){
-        System.out.println("LL");
        Guest guest1 = guestservice.create(guest);
         return guest1;
+    }
+
+    //example
+    @RequestMapping(value="/person/{id}")
+    @ResponseBody
+    public Guest findGuest(@PathVariable("id")Long id) {
+        Guest guest = guestservice.findById(id);
+        return guest;
     }
 }
