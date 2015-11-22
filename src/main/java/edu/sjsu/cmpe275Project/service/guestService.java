@@ -8,7 +8,7 @@ import java.util.List;
  * Created by emy on 11/19/15.
  */
 public interface guestService {
-    void create(Long id);
+    Guest create(Guest guest);
     void delete(Long id);
     void update(Long id);
     Guest findById(Long id);

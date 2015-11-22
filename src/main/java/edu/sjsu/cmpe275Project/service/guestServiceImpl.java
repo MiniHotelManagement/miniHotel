@@ -8,20 +8,18 @@ import org.springframework.stereotype.Service;
 /**
  * Created by emy on 11/19/15.
  */
-@Service("guestService")
+@Service("guestservice")
 public class guestServiceImpl implements guestService {
 
-    private guestDAO guest;
-
     @Autowired
-    public void setGuest(guestDAO guest) {
-        this.guest = guest;
-    }
+    private guestDAO guestdao;
+
 
     @Override
-    public void create(Long id) {
-       // guest.create(id);
+    public Guest create(Guest guest) {
+         Guest newGuest = guestdao.create(guest);
 
+        return newGuest;
     }
 
     @Override

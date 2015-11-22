@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 /**
  * Created by emy on 11/19/15.
  */
-@Repository("roomDAO")
+@Repository("roomdao")
 @Transactional
 public class roomDAOimpl implements roomDAO {
 

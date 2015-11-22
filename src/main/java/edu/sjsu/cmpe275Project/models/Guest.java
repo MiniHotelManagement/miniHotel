@@ -17,13 +17,13 @@ public class Guest implements java.io.Serializable {
     @GeneratedValue
     private long id;
 
-    @Column(name="FirstName", nullable = false)
+    @Column(name="FirstName", nullable = false, length = 20)
     private String firstName;
-    @Column(name="LastName", nullable = false)
+    @Column(name="LastName", nullable = false, length=20)
     private String lastName;
-    @Column(name="email", nullable = false)
+    @Column(name="email", nullable = false, length=30)
     private String email;
-    @Column(name="d_License", nullable = false)
+    @Column(name="d_License", nullable = false, length=10)
     private String driversLicense;
 
     @Embedded
