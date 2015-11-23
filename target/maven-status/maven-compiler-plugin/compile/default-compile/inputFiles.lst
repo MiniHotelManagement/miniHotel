@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/main/MainApplication.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/models/Staff.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/guestService.java
@@ -16,3 +17,26 @@
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/dao/roomDAO.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/roomService.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/guestServiceImpl.java
+=======
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/controller/roomControllers.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/models/Itinary.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/dao/roomDAOimpl.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/service/guestService.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/controller/guestController.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/dao/guestDAOimpl.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/Main/MainApplication.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/service/roomServiceImpl.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/dao/roomDAO.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/models/Address.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/models/Guest.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/models/Room.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/dao/guestDAO.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/controller/staffControllers.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/models/Occupation.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/configs/DBConfig.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/service/roomService.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/configs/SecurityConfig.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/controller/TestController.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/models/Staff.java
+/Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/service/guestServiceImpl.java
+>>>>>>> cat

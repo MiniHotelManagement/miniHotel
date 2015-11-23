@@ -3,6 +3,7 @@ edu/sjsu/cmpe275Project/models/Address.class
 edu/sjsu/cmpe275Project/service/guestService.class
 edu/sjsu/cmpe275Project/models/Room.class
 edu/sjsu/cmpe275Project/service/guestServiceImpl.class
+edu/sjsu/cmpe275Project/models/Itinary.class
 edu/sjsu/cmpe275Project/main/MainApplication.class
 edu/sjsu/cmpe275Project/models/Staff.class
 edu/sjsu/cmpe275Project/service/roomServiceImpl.class
@@ -11,6 +12,8 @@ edu/sjsu/cmpe275Project/controller/TestController.class
 edu/sjsu/cmpe275Project/configs/DBConfig.class
 edu/sjsu/cmpe275Project/controller/staffControllers.class
 edu/sjsu/cmpe275Project/dao/roomDAO.class
+edu/sjsu/cmpe275Project/controller/roomControllers.class
+edu/sjsu/cmpe275Project/models/Occupation.class
 edu/sjsu/cmpe275Project/dao/roomDAOimpl.class
 edu/sjsu/cmpe275Project/models/Guest.class
 edu/sjsu/cmpe275Project/dao/guestDAOimpl.class
