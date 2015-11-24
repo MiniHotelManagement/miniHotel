@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/main/MainApplication.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/models/Staff.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/guestService.java
@@ -18,6 +19,8 @@
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/roomService.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/guestServiceImpl.java
 =======
+=======
+>>>>>>> update room (CRUD)
 /Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/controller/roomControllers.java
 /Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/models/Itinary.java
 /Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/dao/roomDAOimpl.java
@@ -39,4 +42,7 @@
 /Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/controller/TestController.java
 /Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/models/Staff.java
 /Users/yingzhu/Documents/TextBook/Semester3/275/Project/github/miniHotel/src/main/java/edu/sjsu/cmpe275Project/service/guestServiceImpl.java
+<<<<<<< HEAD
 >>>>>>> cat
+=======
+>>>>>>> update room (CRUD)
