@@ -18,6 +18,10 @@ public class roomDAOimpl implements roomDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
+    private Session getSession() {
+        return sessionFactory.getCurrentSession();
+    }
+
     @Override
     public Room create(Room room) {
        Session session = sessionFactory.openSession();
@@ -51,15 +55,16 @@ public class roomDAOimpl implements roomDAO {
 
     @Override
     public void delete(Long id) {
-        Session session = sessionFactory.getCurrentSession();
+        //Session session = sessionFactory.getCurrentSession();
         Room room = findById(id);
-        session.delete(room);
+        getSession().delete(room);
     }
 
     @Override
     public Room findById(Long id) {
-        Session session = sessionFactory.getCurrentSession();
-        Room room = (Room)session.get(Room.class, id);
+        /*Session session = sessionFactory.getCurrentSession();
+        Room room = (Room)session.get(Room.class, id);*/
+        Room room = (Room)getSession().get(Room.class, id);
         return room;
     }
 }
