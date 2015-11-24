@@ -22,9 +22,11 @@ public class roomDAOimpl implements roomDAO {
 
     @Override
     public Room create(Room room) {
-        Session session = sessionFactory.openSession();
+        Session session = sessionFactory.getCurrentSession();
         try{
-            session.save(room);
+            //save or update
+            session.saveOrUpdate(room);
+
         }
         catch(HibernateException ex) {
             throw new RuntimeException(ex);
@@ -33,7 +35,7 @@ public class roomDAOimpl implements roomDAO {
         finally{
             if(session!=null)
                 try{
-                    session.close();
+
                 }
                 catch(HibernateException ex) {
                     throw new RuntimeException(ex);
@@ -44,17 +46,52 @@ public class roomDAOimpl implements roomDAO {
     }
 
     @Override
-    public void update(Long id) {
+    public void update(Room room) {
+        create(room);
 
     }
 
     @Override
     public void delete(Long id) {
+        Session session = sessionFactory.getCurrentSession();
+        Room room = (Room)session.get(Room.class, id);
+        if(room!=null)
+        {
+            session.delete(room);
+        }
+
+        try{
+
+        }catch(RuntimeException ex)
+        {
+
+            throw ex;
+        }
 
     }
 
     @Override
     public Room findById(Long id) {
-        return null;
+        Session session = sessionFactory.getCurrentSession();
+        Room room;
+
+        try{
+            room = (Room) session.get(Room.class, id);
+
+            System.out.println("find the room!");
+
+            if(room == null){
+                /*
+                throw new RuntimeException(ex);
+                */
+                System.out.println("cannot find the room ...");
+            }
+        }catch(RuntimeException ex){
+
+            throw ex;
+        }
+
+        return room;
+
     }
 }
