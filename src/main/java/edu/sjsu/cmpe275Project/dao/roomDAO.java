@@ -8,7 +8,7 @@ import edu.sjsu.cmpe275Project.models.Room;
 public interface roomDAO {
 
     public Room create(Room room);
-    public void update(Long id);
+    public void update(Room room);
     public void delete(Long id);
     Room findById(Long id);
 }
