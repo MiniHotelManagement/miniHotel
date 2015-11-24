@@ -18,8 +18,7 @@ public class guestServiceImpl implements guestService {
     @Override
     public Guest create(Guest guest) {
          Guest newGuest = guestdao.create(guest);
-
-        return newGuest;
+         return newGuest;
     }
 
     @Override
@@ -28,7 +27,9 @@ public class guestServiceImpl implements guestService {
     }
 
     @Override
-    public void update(Long id) {
+    public Guest update(Long id, Guest guest) {
+        Guest guest1 = guestdao.update(id, guest);
+        return guest1;
 
     }
 

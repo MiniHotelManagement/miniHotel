@@ -9,7 +9,7 @@ import edu.sjsu.cmpe275Project.models.Guest;
 
 public interface guestDAO {
     public Guest create(Guest guest);
-    public Guest update(Long id);
+    public Guest update(Long id, Guest guest);
     public void delete(Long id);
     Guest findById(Long id);
 }

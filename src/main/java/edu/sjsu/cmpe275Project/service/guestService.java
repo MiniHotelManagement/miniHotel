@@ -10,7 +10,7 @@ import java.util.List;
 public interface guestService {
     Guest create(Guest guest);
     void delete(Long id);
-    void update(Long id);
+    Guest update(Long id, Guest guest);
     Guest findById(Long id);
     //List<Guest> findAll();
 }

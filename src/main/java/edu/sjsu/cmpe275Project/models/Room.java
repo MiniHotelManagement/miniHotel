@@ -14,7 +14,7 @@ public class Room implements java.io.Serializable {
     @Id
     @GeneratedValue
     private long id;
-    @Column(name="number", length = 4, nullable = false) //room number with max length of 4 digits
+    @Column(name="roomNumber", length = 4, nullable = false) //room number with max length of 4 digits
     private String roomNumber;
     @Column(name="type", nullable = false, length=10) //queen or king
     private String roomType;

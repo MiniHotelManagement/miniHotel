@@ -11,10 +11,11 @@ import org.springframework.web.bind.annotation.*;
  * Created by emy on 11/15/15.
  */
 //dummy controller for now...
+    //All this methods will be put in guestController
+    //for now just to test in postman and verifies it works
 @Controller
 public class TestController {
 
-   // @Autowired
     private guestService guestservice;
 
     @Autowired
@@ -42,5 +43,12 @@ public class TestController {
     public Guest findGuest(@PathVariable("id")Long id) {
         Guest guest = guestservice.findById(id);
         return guest;
+    }
+
+    @RequestMapping(value="/person/{id}", method=RequestMethod.POST)
+    @ResponseBody
+    public Guest update(@PathVariable("id")Long id, @RequestBody Guest guest){
+        Guest guest1 = guestservice.update(id, guest);
+        return guest1;
     }
 }

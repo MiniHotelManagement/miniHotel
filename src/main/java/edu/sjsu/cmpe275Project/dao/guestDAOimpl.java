@@ -18,10 +18,24 @@ public class guestDAOimpl implements guestDAO {
     @Autowired
     private SessionFactory sessionFactory;
 
-    @Override
-    public Guest update(Long id) {
+    private Session getSession() {
+        return sessionFactory.getCurrentSession();
+    }
 
-        return null;
+    @Override
+    public Guest update(Long id, Guest guest) {
+       /* Session session = sessionFactory.getCurrentSession();
+        Guest guest1 = (Guest)session.get(Guest.class, guest.getId());
+        guest1.*/
+        Guest newGuest = (Guest)getSession().get(Guest.class, id);
+        newGuest.setAddress(guest.getAddress());
+        newGuest.setDriversLicense(guest.getDriversLicense());
+        newGuest.setFirstName(guest.getFirstName());
+        newGuest.setEmail(guest.getEmail());
+        newGuest.setLastName(guest.getLastName());
+        getSession().saveOrUpdate(newGuest);
+
+        return newGuest;
     }
 
     @Override
@@ -53,8 +67,9 @@ public class guestDAOimpl implements guestDAO {
 
     @Override
     public Guest findById(Long id) {
-        Session session = sessionFactory.getCurrentSession();
-        Guest guest = (Guest)session.get(Guest.class, id);
+        /*Session session = sessionFactory.getCurrentSession();
+        Guest guest = (Guest)session.get(Guest.class, id);*/
+        Guest guest = (Guest)getSession().get(Guest.class, id);
         return guest;
     }
 }
