@@ -1,8 +1,6 @@
 package edu.sjsu.cmpe275Project.models;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -13,7 +11,8 @@ public class Staff implements Serializable{
     private static final long serialVersionUID = 10230L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="Id")
     private long id;
     @Column(name="firstName", nullable = false)
     private String firstName;
@@ -24,6 +23,18 @@ public class Staff implements Serializable{
 
     @Column(name="password", nullable = false)
     private String password;
+
+    @Column(name="role", nullable = false)
+    @Enumerated(EnumType.STRING)
+    private Roles roles;
+
+    public Roles getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Roles roles) {
+        this.roles = roles;
+    }
 
     public long getId() {
         return id;

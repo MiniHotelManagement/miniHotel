@@ -12,5 +12,4 @@ public interface guestService {
     void delete(Long id);
     Guest update(Long id, Guest guest);
     Guest findById(Long id);
-    //List<Guest> findAll();
 }

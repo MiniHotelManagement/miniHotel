@@ -14,15 +14,19 @@ public class Guest implements java.io.Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="guestId", nullable = false)
     private long id;
 
     @Column(name="FirstName", nullable = false, length = 20)
     private String firstName;
+
     @Column(name="LastName", nullable = false, length=20)
     private String lastName;
+
     @Column(name="email", nullable = false, length=30)
     private String email;
+
     @Column(name="d_License", nullable = false, length=10)
     private String driversLicense;
 

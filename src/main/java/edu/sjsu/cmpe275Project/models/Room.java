@@ -12,14 +12,19 @@ public class Room implements java.io.Serializable {
     private static final long serialVersionUID = 10L;
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="roomId", nullable = false)
     private long id;
+
     @Column(name="roomNumber", length = 4, nullable = false) //room number with max length of 4 digits
     private String roomNumber;
+
     @Column(name="type", nullable = false, length=10) //queen or king
     private String roomType;
+
     @Column(name="properties", nullable = false, length=15) //smoking or non-smoking
     private String roomProperties;
+
     @Column(name="price", columnDefinition = "DECIMAL(10,2)", nullable = false) //sets the precision of price to 2 decimal places
     private double price;
 

@@ -11,9 +11,12 @@ import org.springframework.stereotype.Service;
 @Service("guestservice")
 public class guestServiceImpl implements guestService {
 
-    @Autowired
     private guestDAO guestdao;
 
+    @Autowired
+    public void setGuestdao(guestDAO guestdao) {
+        this.guestdao = guestdao;
+    }
 
     @Override
     public Guest create(Guest guest) {
@@ -23,6 +26,7 @@ public class guestServiceImpl implements guestService {
 
     @Override
     public void delete(Long id) {
+        guestdao.delete(id);
 
     }
 

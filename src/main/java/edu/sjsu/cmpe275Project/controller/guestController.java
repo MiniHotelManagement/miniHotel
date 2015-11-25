@@ -14,4 +14,9 @@ public class guestController {
     public String homePage() {
         return "index";
     }
+
+    @RequestMapping(value="/guest" , method = RequestMethod.GET)
+    public String search() {
+        return "guest";
+    }
 }

@@ -6,8 +6,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Landing Page</title>
-    <link rel="stylesheet" href="../static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
-    <link rel="stylesheet" href="../static/css/styles.css" th:href="@{css/styles.css}"/>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="/static/css/styles.css" th:href="@{css/styles.css}"/>
 </head>
 
 <body>
@@ -19,13 +19,13 @@
 
 <div class="jumbotron" id="buttonArea">
     <h2 class="text-center">Pick One</h2>
-    <a class="btn btn-warning center-block" href="guest.html" role="button">Guest</a><br/>
+    <a class="btn btn-warning center-block" href="guest.html" th:href="@{guest}" role="button">Guest</a><br/>
     <a class="btn btn-warning center-block" data-toggle="modal" href="#saModal" role="button">Service Agent</a><br/>
     <a class="btn btn-warning center-block" data-toggle="modal" href="#adminModal" role="button">Admin</a><br/>
 </div>
 
     <!--login for service agent -->
-    <div class="modal" id="saModal">
+    <div class="modal" id="saModal" >
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -90,7 +90,7 @@
 </div>
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" th:src="@{ajax/libs/jquery/1.11.3/jquery.min.js}"></script>
-<script src="../js/bootstrap.min.js" th:src="@{/js/bootsrap.min.js}"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" th:src="@{https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js}" ></script>
+<script src="/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
 
 </html>
