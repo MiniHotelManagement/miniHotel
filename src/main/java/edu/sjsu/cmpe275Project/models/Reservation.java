@@ -29,19 +29,19 @@ public class Reservation implements Serializable {
     @JoinColumn(name="guestId", nullable = false)
     private Guest guest;
 
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="Occupied_rooms", joinColumns = @JoinColumn(name="reservationId"),
-    inverseJoinColumns = @JoinColumn(name="roomId"))
-    private Collection<Room> roomCollection = new ArrayList<>();
-
-    public Collection<Room> getRoomCollection() {
-        return roomCollection;
-    }
-
-    public void setRoomCollection(Collection<Room> roomCollection) {
-        this.roomCollection = roomCollection;
-    }
+//
+//    @ManyToMany(cascade = CascadeType.ALL)
+//    @JoinTable(name="Occupied_rooms", joinColumns = @JoinColumn(name="reservationId"),
+//    inverseJoinColumns = @JoinColumn(name="roomId"))
+//    private Collection<Room> roomCollection = new ArrayList<>();
+//
+//    public Collection<Room> getRoomCollection() {
+//        return roomCollection;
+//    }
+//
+//    public void setRoomCollection(Collection<Room> roomCollection) {
+//        this.roomCollection = roomCollection;
+//    }
 
     public long getId() {
         return id;

@@ -8,8 +8,9 @@ import java.util.Collection;
 /**
  * Created by emy on 11/25/15.
  */
-@Entity
-@Table(name="occupancy")
+//@Entity
+//@Table(name="occupancy")
+    //no need for this class would be deleted soon.
 public class Occupancy implements Serializable {
 
     @Id
@@ -25,6 +26,8 @@ public class Occupancy implements Serializable {
 //    @JoinTable(name="Occupancy_Room", joinColumns = @JoinColumn(name="occupancyId"),
 //    inverseJoinColumns = @JoinColumn(name="roomId"))
 //    private Collection<Room> roomCollection = new ArrayList<>();
+
+
 
 
     public Reservation getReservation() {

@@ -8,11 +8,11 @@ import java.util.Collection;
 /**
  * Created by emy on 11/25/15.
  */
-//@Entity
-//@Table(name="booking")
-public class Booking /*implements Serializable*/ {
+@Entity
+@Table(name="booking")
+public class Booking implements Serializable {
 
-  /*  @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="bookingId", nullable = false)
     private long Id;
@@ -25,6 +25,21 @@ public class Booking /*implements Serializable*/ {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="reservationId", nullable = false)
     private Reservation reservation;
+
+//    @Column(name="availability", columnDefinition = "varchar(3) default No")
+//    @Enumerated(EnumType.STRING)
+//    private Availability availability;
+
+    @Column(name="availability", columnDefinition = "int default 0")
+    private int avaliabitiy;
+
+    public int getAvaliabitiy() {
+        return avaliabitiy;
+    }
+
+    public void setAvaliabitiy(int avaliabitiy) {
+        this.avaliabitiy = avaliabitiy;
+    }
 
     public long getId() {
         return Id;
@@ -48,5 +63,5 @@ public class Booking /*implements Serializable*/ {
 
     public void setReservation(Reservation reservation) {
         this.reservation = reservation;
-    }*/
+    }
 }
