@@ -8,7 +8,7 @@ import java.util.Date;
 /**
  * Created by dexterwei on 11/18/15.
  */
-public class Occupation implements Serializable {
+public class Occupancy implements Serializable {
     private static final long serialVersionUID = 15L;
 
     @ManyToOne

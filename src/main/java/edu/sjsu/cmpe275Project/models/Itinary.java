@@ -25,7 +25,7 @@ public class Itinary implements Serializable{
     private long guestID;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "itinaryID")
-    private Collection<Occupation> occupations;
+    private Collection<Occupancy> occupancies;
 
     private double payment;
     private double discount;
@@ -47,12 +47,12 @@ public class Itinary implements Serializable{
         this.guestID = guestID;
     }
 
-    public Collection<Occupation> getOccupations() {
-        return occupations;
+    public Collection<Occupancy> getOccupancies() {
+        return occupancies;
     }
 
-    public void setOccupations(Collection<Occupation> occupations) {
-        this.occupations = occupations;
+    public void setOccupancies(Collection<Occupancy> occupancies) {
+        this.occupancies = occupancies;
     }
 
     public double getPayment() {
