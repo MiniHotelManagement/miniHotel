@@ -1,5 +1,6 @@
 package edu.sjsu.cmpe275Project.models;
 
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -9,18 +10,36 @@ import java.util.Date;
  */
 public class Occupation implements Serializable {
     private static final long serialVersionUID = 15L;
-    private long roomNumber;
+
+    @ManyToOne
+    @JoinColumn(name="itinaryID")
+    private Itinary itinary;
+
+    @ManyToOne
+    @JoinColumn(name = "roomNumber", referencedColumnName = "roomID")
+    private Room room;
+
+    @OneToMany
+    @JoinColumn(name = "guestIDs")
     private Collection<Guest> guestsIDs;
+
     private Date checkInDate;
     private Date checkOutDate;
 
-
-    public long getRoomNumber() {
-        return roomNumber;
+    public Itinary getItinaryID() {
+        return itinary;
     }
 
-    public void setRoomNumber(long roomNumber) {
-        this.roomNumber = roomNumber;
+    public void setItinaryID(Itinary itinary) {
+        this.itinary = itinary;
+    }
+
+    public Room getRoomNumber() {
+        return room;
+    }
+
+    public void setRoomNumber(Room room) {
+        this.room = room;
     }
 
     public Collection<Guest> getGuestsIDs() {
