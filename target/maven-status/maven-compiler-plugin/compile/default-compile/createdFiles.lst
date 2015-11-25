@@ -3,12 +3,11 @@ edu/sjsu/cmpe275Project/models/Booking.class
 edu/sjsu/cmpe275Project/models/Address.class
 edu/sjsu/cmpe275Project/service/guestService.class
 edu/sjsu/cmpe275Project/models/Room.class
-edu/sjsu/cmpe275Project/models/Roles.class
 edu/sjsu/cmpe275Project/service/reservationServiceImpl.class
 edu/sjsu/cmpe275Project/service/guestServiceImpl.class
+edu/sjsu/cmpe275Project/models/Availability.class
 edu/sjsu/cmpe275Project/main/MainApplication.class
 edu/sjsu/cmpe275Project/configs/SecurityConfig.class
-edu/sjsu/cmpe275Project/models/Staff.class
 edu/sjsu/cmpe275Project/dao/reservationDAO.class
 edu/sjsu/cmpe275Project/service/roomServiceImpl.class
 edu/sjsu/cmpe275Project/controller/guestController.class

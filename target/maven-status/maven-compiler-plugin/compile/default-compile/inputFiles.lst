@@ -1,6 +1,5 @@
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/main/MainApplication.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/reservationServiceImpl.java
-/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/models/Staff.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/guestService.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/dao/roomDAOimpl.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/dao/guestDAO.java
@@ -12,9 +11,9 @@
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/roomServiceImpl.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/dao/reservationDAO.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/controller/guestController.java
-/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/models/Roles.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/dao/reservationDAOImpl.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/dao/roomDAO.java
+/Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/models/Availability.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/reservationService.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/service/guestServiceImpl.java
 /Users/emy/Documents/cmpe275/TermProject/src/main/java/edu/sjsu/cmpe275Project/controller/TestController.java
