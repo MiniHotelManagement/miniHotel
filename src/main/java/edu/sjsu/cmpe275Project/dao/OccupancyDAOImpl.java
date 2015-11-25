@@ -46,7 +46,7 @@ public class OccupancyDAOImpl implements OccupancyDAO {
     }
 
     @Override
-    public Occupancy update(Long id, Occupancy occ) {
+    public Occupancy update(Long id, Occupancy occ) throws ResourceNotFoundException{
         Occupancy curr_occ = (Occupancy)getSession().get(Occupancy.class, id);
         if(curr_occ == null){
             throw new ResourceNotFoundException();
@@ -59,14 +59,20 @@ public class OccupancyDAOImpl implements OccupancyDAO {
     }
 
     @Override
-    public void delete(Long id) {
+    public void delete(Long id) throws ResourceNotFoundException{
         Occupancy curr_occ = (Occupancy)getSession().get(Occupancy.class, id);
+        if(curr_occ == null){
+            throw new ResourceNotFoundException();
+        }
         getSession().delete(curr_occ);
     }
 
     @Override
-    public Occupancy findById(Long id) {
+    public Occupancy findById(Long id) throws ResourceNotFoundException{
         Occupancy curr_occ = (Occupancy)getSession().get(Occupancy.class, id);
+        if(curr_occ == null){
+            throw new ResourceNotFoundException();
+        }
         return curr_occ;
     }
 }
