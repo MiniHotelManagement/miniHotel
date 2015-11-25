@@ -16,8 +16,12 @@ public class Reservation implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name="reservationId", nullable = false)
     private long id;
+
     private String checkInDate;
+
     private String checkOutDate;
+
+    @Column(name="no_of_rooms")
     private int no_of_rooms;
     private String roomProperties;
 
