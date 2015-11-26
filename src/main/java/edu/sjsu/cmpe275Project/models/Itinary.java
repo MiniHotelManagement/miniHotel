@@ -22,9 +22,9 @@ public class Itinary implements Serializable{
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="guestId", nullable = false)
-    private long guestID;
+    private Guest guest;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "itinaryID")
+    @OneToMany(cascade = CascadeType.ALL)
     private Collection<Occupancy> occupancies;
 
     private double payment;
@@ -39,12 +39,12 @@ public class Itinary implements Serializable{
         this.itinaryID = itinaryID;
     }
 
-    public long getGuestID() {
-        return guestID;
+    public Guest getGuestID() {
+        return guest;
     }
 
-    public void setGuestID(long guestID) {
-        this.guestID = guestID;
+    public void setGuestID(Guest guest) {
+        this.guest = guest;
     }
 
     public Collection<Occupancy> getOccupancies() {

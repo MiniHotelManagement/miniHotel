@@ -8,8 +8,18 @@ import java.util.Date;
 /**
  * Created by dexterwei on 11/18/15.
  */
+
+
+@Entity
+@Table(name="Occupancy")
 public class Occupancy implements Serializable {
     private static final long serialVersionUID = 15L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="OCCUPANCYID", nullable = false)
+    private long occupancyID;
+
 
     @ManyToOne
     @JoinColumn(name="itinaryID")
@@ -19,18 +29,23 @@ public class Occupancy implements Serializable {
     @JoinColumn(name = "roomNumber", referencedColumnName = "roomID")
     private Room room;
 
-    @OneToMany
+    @ManyToMany
     @JoinColumn(name = "guestIDs")
     private Collection<Guest> guestsIDs;
 
     private Date checkInDate;
     private Date checkOutDate;
 
-    public Itinary getItinaryID() {
+
+    public long getOccupancyID() {
+        return occupancyID;
+    }
+
+    public Itinary getItinary() {
         return itinary;
     }
 
-    public void setItinaryID(Itinary itinary) {
+    public void setItinary(Itinary itinary) {
         this.itinary = itinary;
     }
 

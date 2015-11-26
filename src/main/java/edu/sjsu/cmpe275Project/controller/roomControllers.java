@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.Collection;
 
 /**
  * Created by yingzhu on 11/23/15.
@@ -16,6 +17,12 @@ public class roomControllers {
 
     @Autowired
     private roomService roomservice;
+    @Autowired
+    private roomService occupancyservice;
+
+//    @RequestMapping(value="/room/availability/",method = RequestMethod.GET)
+//    @ResponseBody
+//    public Collection<Room>
 
     @RequestMapping(value="/room", method = RequestMethod.POST)
     @ResponseBody
@@ -37,7 +44,7 @@ public class roomControllers {
         Room room1 = roomservice.findById(id);
         if(room1!=null) {
             room.setId(id);
-            roomservice.update(room);
+            roomservice.update(id, room);
         }
         room1 = roomservice.findById(id);
         return room1;

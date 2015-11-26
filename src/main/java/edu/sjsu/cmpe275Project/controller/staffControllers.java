@@ -23,7 +23,7 @@ public class staffControllers {
         this.roomservice = roomservice;
     }
 
-    @RequestMapping(value = "/room", method = RequestMethod.POST)
+    @RequestMapping(value = "/staff/room", method = RequestMethod.POST)
     @ResponseBody
     public Room create(@RequestBody Room room) {
         Room room1 = roomservice.create(room);

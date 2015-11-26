@@ -1,13 +1,6 @@
 package edu.sjsu.cmpe275Project.controller;
 
-import edu.sjsu.cmpe275Project.models.Guest;
-import edu.sjsu.cmpe275Project.models.Reservation;
-import edu.sjsu.cmpe275Project.service.guestService;
-import edu.sjsu.cmpe275Project.service.guestServiceImpl;
-import edu.sjsu.cmpe275Project.service.reservationService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
 
 /**
  * Created by emy on 11/15/15.
@@ -59,16 +52,16 @@ public class TestController {
         Guest guest1 = guestservice.update(id, guest);
         return guest1;
     }*/
-    private reservationService reservationservice;
-
-    @Autowired
-    public void setReservationservice(reservationService reservationservice) {
-        this.reservationservice = reservationservice;
-    }
-
-    @RequestMapping(value="/reservation", method = RequestMethod.POST)
-    @ResponseBody
-    public Reservation create(@RequestBody Reservation reservation){
-        return reservationservice.create(reservation);
-    }
+//    private reservationService reservationservice;
+//
+//    @Autowired
+//    public void setReservationservice(reservationService reservationservice) {
+//        this.reservationservice = reservationservice;
+//    }
+//
+//    @RequestMapping(value="/reservation", method = RequestMethod.POST)
+//    @ResponseBody
+//    public Reservation create(@RequestBody Reservation reservation){
+//        return reservationservice.create(reservation);
+//    }
 }
