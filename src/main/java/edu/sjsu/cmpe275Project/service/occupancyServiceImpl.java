@@ -29,11 +29,11 @@ public class occupancyServiceImpl implements occupancyService{
     public Collection<Room> searchAvlRoom(Date checkinD, Date checkoutD, String roomType, String roomProp) {
         Session session = getSession();
         String hql = "SELECT roomId " +
-                "FROM room " +
-                "WHERE type LIKE " +roomType+ " AND properties LIKE "+ roomProp+" NOT EXISTS(" +
-                "SELECT OCCUPANCYID " +
+                "FROM Room " +
+                "WHERE NOT EXISTS(" +
+                "SELECT room " +
                 "FROM Occupancy " +
-                "WHERE checkInDate <= \""+checkinD.toString()+"\" AND checkOutDate >= \"" + checkoutD.toString() +"\" AND Occupancy.roomNumber=room.roomId\n" +
+                "WHERE checkInDate <= \'"+checkinD.toString()+"\' and checkOutDate >= \'" + checkoutD.toString() +"\' and room=room" +
                 ")";
 
         Query query = session.createQuery(hql);

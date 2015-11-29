@@ -1,12 +1,16 @@
 package edu.sjsu.cmpe275Project.controller;
 
 import edu.sjsu.cmpe275Project.models.Room;
+import edu.sjsu.cmpe275Project.service.occupancyService;
 import edu.sjsu.cmpe275Project.service.roomService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.Date;
 import java.util.Collection;
 
 /**
@@ -18,11 +22,24 @@ public class roomControllers {
     @Autowired
     private roomService roomservice;
     @Autowired
-    private roomService occupancyservice;
+    private occupancyService occupancyservice;
 
 //    @RequestMapping(value="/room/availability/",method = RequestMethod.GET)
 //    @ResponseBody
 //    public Collection<Room>
+
+    @RequestMapping(value = "/room/search", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ResponseEntity<?> SearchRoom(
+            @RequestParam(value = "checkinDate", required = true) Date checkindate,
+            @RequestParam(value = "checkoutDate", required = true) Date checkoutdate,
+            @RequestParam(value = "roomType", required = true) String roomType,
+            @RequestParam(value = "roomProp", required = true) String roomProp
+    ){
+        return new ResponseEntity<>(occupancyservice.searchAvlRoom(checkindate,checkoutdate,roomType,roomProp),HttpStatus.OK);
+    }
+
 
     @RequestMapping(value="/room", method = RequestMethod.POST)
     @ResponseBody
