@@ -4,10 +4,12 @@ import edu.sjsu.cmpe275Project.dao.roomDAO;
 import edu.sjsu.cmpe275Project.models.Room;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by emy on 11/23/15.
  */
+@Transactional
 @Service("roomservice")
 public class roomServiceImpl implements roomService {
 

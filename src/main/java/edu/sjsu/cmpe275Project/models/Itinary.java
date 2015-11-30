@@ -4,6 +4,7 @@ package edu.sjsu.cmpe275Project.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -24,8 +25,8 @@ public class Itinary implements Serializable{
     @JoinColumn(name="guestId", nullable = false)
     private Guest guest;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private Collection<Occupancy> occupancies;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private Collection<Occupancy> occupancies = new ArrayList<Occupancy>();
 
     private double payment;
     private double discount;

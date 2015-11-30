@@ -1,33 +1,33 @@
 package edu.sjsu.cmpe275Project.dao;
 
+import edu.sjsu.cmpe275Project.models.Itinary;
 import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.util.ResourceNotFoundException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by dexterwei on 11/25/15.
  */
-public class OccupancyDAOImpl implements OccupancyDAO {
+@Repository("itidao")
+@Transactional
+public class ItinaryDAOImpl implements ItinaryDAO {
     @Autowired
     private SessionFactory sessionFactory;
-    private OccupancyDAO occdao;
 
-    @Autowired
-    public void setOccdao(OccupancyDAO occdao) {
-        this.occdao = occdao;
-    }
     private Session getSession() {
         return sessionFactory.getCurrentSession();
     }
 
     @Override
-    public Occupancy create(Occupancy occ) {
+    public Itinary create(Itinary iti) {
         Session session = sessionFactory.openSession();
         try{
-            session.save(occ);
+            session.save(iti);
         }
         catch(HibernateException ex) {
             throw new RuntimeException(ex);
@@ -42,38 +42,41 @@ public class OccupancyDAOImpl implements OccupancyDAO {
                     throw new RuntimeException(ex);
                 }
         }
-        return occ;
+        return iti;
     }
 
     @Override
-    public Occupancy update(Long id, Occupancy occ) throws ResourceNotFoundException{
-        Occupancy curr_occ = (Occupancy)getSession().get(Occupancy.class, id);
-        if(curr_occ == null){
+    public Itinary update(Long id, Itinary iti) throws ResourceNotFoundException{
+        Session session = getSession();
+        Itinary curr_iti = (Itinary)session.get(Itinary.class, id);
+        if(curr_iti == null){
             throw new ResourceNotFoundException();
         }
-        curr_occ.setCheckInDate(occ.getCheckInDate());
-        curr_occ.setCheckOutDate(occ.getCheckOutDate());
-        curr_occ.setRoomNumber(occ.getRoomNumber());
-        curr_occ.setGuestsIDs(occ.getGuestsIDs());
-        getSession().saveOrUpdate(curr_occ);
-        return curr_occ;
+        curr_iti.setGuestID(iti.getGuestID());
+        curr_iti.setOccupancies(iti.getOccupancies());
+        curr_iti.setPayment(iti.getPayment());
+        curr_iti.setDiscount(iti.getDiscount());
+        curr_iti.setPaymentDate(iti.getPaymentDate());
+        session.saveOrUpdate(curr_iti);
+        session.close();
+        return curr_iti;
     }
 
     @Override
     public void delete(Long id) throws ResourceNotFoundException{
-        Occupancy curr_occ = (Occupancy)getSession().get(Occupancy.class, id);
-        if(curr_occ == null){
+        Itinary curr_iti = (Itinary)getSession().get(Itinary.class, id);
+        if(curr_iti == null){
             throw new ResourceNotFoundException();
         }
-        getSession().delete(curr_occ);
+        getSession().delete(curr_iti);
     }
 
     @Override
-    public Occupancy findById(Long id) throws ResourceNotFoundException{
-        Occupancy curr_occ = (Occupancy)getSession().get(Occupancy.class, id);
-        if(curr_occ == null){
+    public Itinary findById(Long id) throws ResourceNotFoundException{
+        Itinary curr_iti = (Itinary)getSession().get(Itinary.class, id);
+        if(curr_iti == null){
             throw new ResourceNotFoundException();
         }
-        return curr_occ;
+        return curr_iti;
     }
 }

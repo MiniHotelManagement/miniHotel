@@ -16,30 +16,12 @@ import java.util.Collection;
 /**
  * Created by yingzhu on 11/23/15.
  */
+
 @Controller
 public class roomControllers {
 
     @Autowired
     private roomService roomservice;
-    @Autowired
-    private occupancyService occupancyservice;
-
-//    @RequestMapping(value="/room/availability/",method = RequestMethod.GET)
-//    @ResponseBody
-//    public Collection<Room>
-
-    @RequestMapping(value = "/room/search", method = RequestMethod.GET)
-    public
-    @ResponseBody
-    ResponseEntity<?> SearchRoom(
-            @RequestParam(value = "checkinDate", required = true) Date checkindate,
-            @RequestParam(value = "checkoutDate", required = true) Date checkoutdate,
-            @RequestParam(value = "roomType", required = true) String roomType,
-            @RequestParam(value = "roomProp", required = true) String roomProp
-    ){
-        return new ResponseEntity<>(occupancyservice.searchAvlRoom(checkindate,checkoutdate,roomType,roomProp),HttpStatus.OK);
-    }
-
 
     @RequestMapping(value="/room", method = RequestMethod.POST)
     @ResponseBody

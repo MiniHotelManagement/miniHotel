@@ -4,10 +4,12 @@ import edu.sjsu.cmpe275Project.dao.guestDAO;
 import edu.sjsu.cmpe275Project.models.Guest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by emy on 11/19/15.
  */
+@Transactional
 @Service("guestservice")
 public class guestServiceImpl implements guestService {
 

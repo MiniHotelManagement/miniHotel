@@ -2,6 +2,7 @@ package edu.sjsu.cmpe275Project.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 
@@ -14,6 +15,10 @@ import java.util.Date;
 @Table(name="Occupancy")
 public class Occupancy implements Serializable {
     private static final long serialVersionUID = 15L;
+
+    public Occupancy() {
+
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,8 +36,7 @@ public class Occupancy implements Serializable {
 
     @ManyToMany
     @JoinColumn(name = "guestIDs")
-    private Collection<Guest> guestsIDs;
-
+    private Collection<Guest> guestsIDs = new ArrayList<Guest>();
     private Date checkInDate;
     private Date checkOutDate;
 
