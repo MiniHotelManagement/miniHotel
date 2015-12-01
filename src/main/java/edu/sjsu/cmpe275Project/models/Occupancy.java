@@ -26,7 +26,7 @@ public class Occupancy implements Serializable {
     private long occupancyID;
 
 
-    @ManyToOne
+    @ManyToOne(fetch=FetchType.LAZY)
     @JoinColumn(name="itinaryID")
     private Itinary itinary;
 
@@ -34,7 +34,7 @@ public class Occupancy implements Serializable {
     @JoinColumn(name = "roomNumber", referencedColumnName = "roomID")
     private Room room;
 
-    @ManyToMany
+    @ManyToMany(fetch=FetchType.EAGER)
     @JoinColumn(name = "guestIDs")
     private Collection<Guest> guestsIDs = new ArrayList<Guest>();
     private Date checkInDate;
@@ -84,8 +84,5 @@ public class Occupancy implements Serializable {
     public void setCheckOutDate(Date checkOutDate) {
         this.checkOutDate = checkOutDate;
     }
-
-
-
 
 }

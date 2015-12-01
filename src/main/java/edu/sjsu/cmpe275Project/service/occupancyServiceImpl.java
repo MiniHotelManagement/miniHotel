@@ -1,14 +1,17 @@
 package edu.sjsu.cmpe275Project.service;
 
 import edu.sjsu.cmpe275Project.dao.OccupancyDAO;
+import edu.sjsu.cmpe275Project.models.Guest;
+import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.models.Room;
 import org.hibernate.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Date;
+import java.sql.Date;
 import java.util.List;
 
 /**
@@ -19,10 +22,19 @@ import java.util.List;
 public class occupancyServiceImpl implements occupancyService{
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private guestService gstService;
+    @Autowired
+    private roomService rmService;
+    @Autowired
+    private ItinaryService itiService;
+    @Autowired
+    private OccupancyDAO occdao;
 
     private Session getSession() {
         return sessionFactory.getCurrentSession();
     }
+
     @Override
     public Collection<Room> searchAvlRoom(Date checkinD, Date checkoutD, String roomType, String roomProp) {
         Session session = getSession();
@@ -50,5 +62,25 @@ public class occupancyServiceImpl implements occupancyService{
 //        Query query = session.createQuery(hql);
 //        List results = query.list();
         return results;
+    }
+
+    @Override
+    public Occupancy createOccupancy(long guestId, long itiId, long roomId, Date checkInDate, Date checkOutDate) {
+        Occupancy new_occ = new Occupancy();
+        Collection<Guest> gstlst = new ArrayList<Guest>();
+        gstlst.add(gstService.findById(guestId));
+        new_occ.setGuestsIDs(gstlst);
+        new_occ.setRoomNumber(rmService.findById(roomId));
+        new_occ.setItinary(itiService.findItinary(itiId));
+        new_occ.setCheckInDate(checkInDate);
+        new_occ.setCheckOutDate(checkOutDate);
+        occdao.create(new_occ);
+        return new_occ;
+    }
+
+    @Override
+    public Occupancy findItinary(long occId) {
+        Occupancy occ = occdao.findById(occId);
+        return occ;
     }
 }

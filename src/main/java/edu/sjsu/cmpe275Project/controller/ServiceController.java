@@ -41,22 +41,46 @@ public class ServiceController {
     //create a guest first
     //then try http://localhost:8080/room/itinary?guestId=1&discount=0&payment=0&paymentDate=2015-11-27
     @RequestMapping(value = "/room/itinary", method = RequestMethod.POST)
-    public
-    @ResponseBody
-    ResponseEntity<?> createItinary(
-            @RequestParam(value = "guestId", required = true) long guestId,
-            @RequestParam(value = "discount", required = true) double discont,
-            @RequestParam(value = "payment", required = true) double payment,
-            @RequestParam(value = "paymentDate", required = false) Date payDate
-    ){
+     public
+     @ResponseBody
+     ResponseEntity<?> createItinary(
+                    @RequestParam(value = "guestId", required = true) long guestId,
+                    @RequestParam(value = "discount", required = true) double discont,
+                    @RequestParam(value = "payment", required = true) double payment,
+                    @RequestParam(value = "paymentDate", required = false) Date payDate
+            ){
         return new ResponseEntity<>(itinaryservice.createItinary(guestId,discont,payment,payDate), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/room/itinary/{id}", method = RequestMethod.GET)
     public
     @ResponseBody
-    ResponseEntity<?> createItinary(@PathVariable("id") long id){
+    ResponseEntity<?> getItinary(@PathVariable("id") long id){
         return new ResponseEntity<>(itinaryservice.findItinary(id), HttpStatus.OK);
     }
+
+
+    //create a guest and an itinary first
+    //then try http://localhost:8080/room/occupancy?guestId=1&itinaryId=1&roomId=3&checkinDate=2015-11-22&checkoutDate=2015-11-24
+    @RequestMapping(value = "/room/occupancy", method = RequestMethod.POST)
+    public
+    @ResponseBody
+    ResponseEntity<?> createOcc(
+            @RequestParam(value = "guestId", required = true) long guestId,
+            @RequestParam(value = "itinaryId", required = true) long itiId,
+            @RequestParam(value = "roomId", required = true) long roomId,
+            @RequestParam(value = "checkinDate", required = true) Date inDate,
+            @RequestParam(value = "checkoutDate", required = true) Date outDate
+    ){
+        return new ResponseEntity<>(occupancyservice.createOccupancy(guestId,itiId,roomId,inDate,outDate), HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/room/occupancy/{id}", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ResponseEntity<?> getOcc(@PathVariable("id") long id){
+        return new ResponseEntity<>(occupancyservice.findItinary(id), HttpStatus.OK);
+    }
+
 
 }

@@ -6,19 +6,18 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by dexterwei on 11/25/15.
  */
+@Repository("occdao")
+@Transactional
 public class OccupancyDAOImpl implements OccupancyDAO {
     @Autowired
     private SessionFactory sessionFactory;
-    private OccupancyDAO occdao;
 
-    @Autowired
-    public void setOccdao(OccupancyDAO occdao) {
-        this.occdao = occdao;
-    }
     private Session getSession() {
         return sessionFactory.getCurrentSession();
     }
