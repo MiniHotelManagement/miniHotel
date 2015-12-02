@@ -1,7 +1,5 @@
 # cmpe275 Term Project
 
-<h2> test </h2>
-
 <h2>Synopsis</h2>
 This project is an application for a Hotel Management system. Staffs include a service agent and administrator. A guest can search for room availability on the app or can be done on the fly. A service agent confirms the guest upon arrival date. Both service agent and administrator have similar roles except admin can room provisioning.  
 
