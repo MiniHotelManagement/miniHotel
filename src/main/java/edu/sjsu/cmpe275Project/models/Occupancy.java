@@ -34,9 +34,9 @@ public class Occupancy implements Serializable {
     @JoinColumn(name = "roomNumber", referencedColumnName = "roomID")
     private Room room;
 
-    @ManyToMany(fetch=FetchType.EAGER)
-    @JoinColumn(name = "guestIDs")
-    private Collection<Guest> guestsIDs = new ArrayList<Guest>();
+    private int NunOfPerson;
+
+
     private Date checkInDate;
     private Date checkOutDate;
 
@@ -61,12 +61,12 @@ public class Occupancy implements Serializable {
         this.room = room;
     }
 
-    public Collection<Guest> getGuestsIDs() {
-        return guestsIDs;
+    public int getNunOfPerson() {
+        return NunOfPerson;
     }
 
-    public void setGuestsIDs(Collection<Guest> guestsIDs) {
-        this.guestsIDs = guestsIDs;
+    public void setNunOfPerson(int nunOfPerson) {
+        NunOfPerson = nunOfPerson;
     }
 
     public Date getCheckInDate() {

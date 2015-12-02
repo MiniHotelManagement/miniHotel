@@ -4,6 +4,7 @@ import edu.sjsu.cmpe275Project.dao.ItinaryDAO;
 import edu.sjsu.cmpe275Project.dao.roomDAO;
 import edu.sjsu.cmpe275Project.models.Guest;
 import edu.sjsu.cmpe275Project.models.Itinary;
+import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.models.Room;
 import org.hibernate.Criteria;
 import org.hibernate.SQLQuery;
@@ -49,4 +50,12 @@ public class ItinaryServiceImpl implements ItinaryService{
     public Itinary findItinary(long itiId) {
         return itidao.findById(itiId);
     }
+
+//    @Override
+//    public Itinary addOccToItinary(long itiId, Occupancy newOcc) {
+//        Itinary iti = findItinary(itiId);
+//        iti.getOccupancies().add(newOcc);
+//        itidao.update(itiId,iti);
+//        return iti;
+//    }
 }

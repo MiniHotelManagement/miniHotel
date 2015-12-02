@@ -25,8 +25,8 @@ public class Itinary implements Serializable{
     @JoinColumn(name="guestId", nullable = false)
     private Guest guest;
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
-    private Collection<Occupancy> occupancies = new ArrayList<Occupancy>();
+//    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+//    private Collection<Occupancy> occupancies = new ArrayList<Occupancy>();
 
     private double payment;
     private double discount;
@@ -48,13 +48,13 @@ public class Itinary implements Serializable{
         this.guest = guest;
     }
 
-    public Collection<Occupancy> getOccupancies() {
-        return occupancies;
-    }
-
-    public void setOccupancies(Collection<Occupancy> occupancies) {
-        this.occupancies = occupancies;
-    }
+//    public Collection<Occupancy> getOccupancies() {
+//        return occupancies;
+//    }
+//
+//    public void setOccupancies(Collection<Occupancy> occupancies) {
+//        this.occupancies = occupancies;
+//    }
 
     public double getPayment() {
         return payment;

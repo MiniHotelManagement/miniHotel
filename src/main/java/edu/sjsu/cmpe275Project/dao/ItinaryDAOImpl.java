@@ -53,7 +53,7 @@ public class ItinaryDAOImpl implements ItinaryDAO {
             throw new ResourceNotFoundException();
         }
         curr_iti.setGuestID(iti.getGuestID());
-        curr_iti.setOccupancies(iti.getOccupancies());
+        //curr_iti.setOccupancies(iti.getOccupancies());
         curr_iti.setPayment(iti.getPayment());
         curr_iti.setDiscount(iti.getDiscount());
         curr_iti.setPaymentDate(iti.getPaymentDate());

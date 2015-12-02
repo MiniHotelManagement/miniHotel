@@ -2,6 +2,7 @@ package edu.sjsu.cmpe275Project.service;
 
 import edu.sjsu.cmpe275Project.dao.OccupancyDAO;
 import edu.sjsu.cmpe275Project.models.Guest;
+import edu.sjsu.cmpe275Project.models.Itinary;
 import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.models.Room;
 import org.hibernate.*;
@@ -65,16 +66,19 @@ public class occupancyServiceImpl implements occupancyService{
     }
 
     @Override
-    public Occupancy createOccupancy(long guestId, long itiId, long roomId, Date checkInDate, Date checkOutDate) {
+    public Occupancy createOccupancy(long guestId, long itiId, long roomId, int numPerson, Date checkInDate, Date checkOutDate) {
         Occupancy new_occ = new Occupancy();
         Collection<Guest> gstlst = new ArrayList<Guest>();
         gstlst.add(gstService.findById(guestId));
-        new_occ.setGuestsIDs(gstlst);
+        new_occ.setNunOfPerson(numPerson);
         new_occ.setRoomNumber(rmService.findById(roomId));
         new_occ.setItinary(itiService.findItinary(itiId));
         new_occ.setCheckInDate(checkInDate);
         new_occ.setCheckOutDate(checkOutDate);
         occdao.create(new_occ);
+        //Itinary iti = itiService.findItinary(itiId);
+        //iti.getOccupancies().add(new_occ);
+        //itiService.addOccToItinary(itiId,new_occ);
         return new_occ;
     }
 

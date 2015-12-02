@@ -1,6 +1,7 @@
 package edu.sjsu.cmpe275Project.service;
 
 import edu.sjsu.cmpe275Project.models.Itinary;
+import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.models.Room;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -16,5 +17,7 @@ public interface ItinaryService {
                                     double discont,
                                     double payment,
                                     Date payDate);
+    //Itinary addOccToItinary(long itiId, Occupancy newOcc);
+
     Itinary findItinary( long itiId );
 }

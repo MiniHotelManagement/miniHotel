@@ -69,10 +69,11 @@ public class ServiceController {
             @RequestParam(value = "guestId", required = true) long guestId,
             @RequestParam(value = "itinaryId", required = true) long itiId,
             @RequestParam(value = "roomId", required = true) long roomId,
+            @RequestParam(value = "numPerson", required = true) int num,
             @RequestParam(value = "checkinDate", required = true) Date inDate,
             @RequestParam(value = "checkoutDate", required = true) Date outDate
     ){
-        return new ResponseEntity<>(occupancyservice.createOccupancy(guestId,itiId,roomId,inDate,outDate), HttpStatus.OK);
+        return new ResponseEntity<>(occupancyservice.createOccupancy(guestId,itiId,roomId,num, inDate,outDate), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/room/occupancy/{id}", method = RequestMethod.GET)
