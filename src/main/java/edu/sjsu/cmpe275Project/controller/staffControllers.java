@@ -27,7 +27,7 @@ public class staffControllers {
         return room1;
     }
 
-    @RequestMapping(value = "/staff/room/{id}", method = RequestMethod.POST)
+    @RequestMapping(value = "/staff/room/{id}", method = RequestMethod.PUT)
     @ResponseBody
     public Room updateRoom(@PathVariable("id") Long id, @RequestBody Room room) {
         Room room1 = roomservice.update(id, room);
