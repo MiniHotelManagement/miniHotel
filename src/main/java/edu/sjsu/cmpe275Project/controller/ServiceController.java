@@ -28,7 +28,7 @@ public class ServiceController {
     private ItinaryService itinaryservice;
 
     //try this http://localhost:8080/room/search?checkinDate=2015-11-24&checkoutDate=2015-11-25&roomType=K&roomProp=SMK
-    @RequestMapping(value = "/room/search", method = RequestMethod.POST)
+    @RequestMapping(value = "/guest/search", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity<?> SearchRoom(
@@ -46,7 +46,7 @@ public class ServiceController {
     }
 
     //try this http://localhost:8080/room/report?date=2015-11-24
-    @RequestMapping(value = "/room/report", method = RequestMethod.GET)
+    @RequestMapping(value = "/staff/report", method = RequestMethod.GET)
     public
     @ResponseBody
     ResponseEntity<?> SearchRoom(
@@ -56,8 +56,8 @@ public class ServiceController {
         return new ResponseEntity<>(occupancyservice.RoomStatus(date), HttpStatus.OK);
     }
     //create a guest first
-    //then try http://localhost:8080/room/itinary?guestId=1&discount=0&payment=0&paymentDate=2015-11-27
-    @RequestMapping(value = "/room/itinary", method = RequestMethod.POST)
+    //then try http://localhost:8080/staff/itinary?guestId=1&discount=0&payment=0&paymentDate=2015-11-27
+    @RequestMapping(value = "/staff/itinary", method = RequestMethod.POST)
      public
      @ResponseBody
      ResponseEntity<?> createItinary(
@@ -73,7 +73,7 @@ public class ServiceController {
         return new ResponseEntity<>(itinaryservice.createItinary(iti), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/room/itinary/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/staff/itinary/{id}", method = RequestMethod.GET)
     public
     @ResponseBody
     ResponseEntity<?> getItinary(@PathVariable("id") long id){
@@ -82,8 +82,8 @@ public class ServiceController {
 
 
     //create a guest and an itinary first
-    //then try http://localhost:8080/room/occupancy?guestId=1&itinaryId=1&roomId=3&checkinDate=2015-11-22&checkoutDate=2015-11-24
-    @RequestMapping(value = "/room/occupancy", method = RequestMethod.POST)
+    //then try http://localhost:8080/staff/occupancy?guestId=1&itinaryId=1&roomId=3&checkinDate=2015-11-22&checkoutDate=2015-11-24
+    @RequestMapping(value = "/staff/occupancy", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity<?> createOcc(
@@ -100,7 +100,7 @@ public class ServiceController {
         return new ResponseEntity<>(occupancyservice.createOccupancy(occ), HttpStatus.OK);
      }
 
-    @RequestMapping(value = "/room/occupancy/{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "/staff/occupancy/{id}", method = RequestMethod.GET)
     public
     @ResponseBody
     ResponseEntity<?> getOcc(@PathVariable("id") long id){
