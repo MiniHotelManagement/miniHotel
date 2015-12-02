@@ -1,7 +1,6 @@
 package edu.sjsu.cmpe275Project.dao;
 
 import edu.sjsu.cmpe275Project.models.Itinary;
-import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.util.ResourceNotFoundException;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -52,7 +51,7 @@ public class ItinaryDAOImpl implements ItinaryDAO {
         if(curr_iti == null){
             throw new ResourceNotFoundException();
         }
-        curr_iti.setGuestID(iti.getGuestID());
+        curr_iti.setGuest(iti.getGuest());
         //curr_iti.setOccupancies(iti.getOccupancies());
         curr_iti.setPayment(iti.getPayment());
         curr_iti.setDiscount(iti.getDiscount());
