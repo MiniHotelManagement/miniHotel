@@ -1,12 +1,8 @@
 package edu.sjsu.cmpe275Project.service;
 
 import edu.sjsu.cmpe275Project.models.Itinary;
-import edu.sjsu.cmpe275Project.models.Occupancy;
-import edu.sjsu.cmpe275Project.models.Room;
-import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.Date;
-import java.util.Collection;
 
 
 /**
@@ -20,4 +16,5 @@ public interface ItinaryService {
     //Itinary addOccToItinary(long itiId, Occupancy newOcc);
 
     Itinary findItinary( long itiId );
+    Itinary createItinary(Itinary iti);
 }

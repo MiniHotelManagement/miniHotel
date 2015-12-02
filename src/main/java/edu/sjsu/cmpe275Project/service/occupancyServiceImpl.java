@@ -1,18 +1,18 @@
 package edu.sjsu.cmpe275Project.service;
 
 import edu.sjsu.cmpe275Project.dao.OccupancyDAO;
-import edu.sjsu.cmpe275Project.models.Guest;
-import edu.sjsu.cmpe275Project.models.Itinary;
 import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.models.Room;
-import org.hibernate.*;
+import org.hibernate.Criteria;
+import org.hibernate.SQLQuery;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.sql.Date;
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -37,7 +37,15 @@ public class occupancyServiceImpl implements occupancyService{
     }
 
     @Override
-    public Collection<Room> searchAvlRoom(Date checkinD, Date checkoutD, String roomType, String roomProp) {
+
+    public Collection<Room> searchAvlRoom(Occupancy occ) {
+
+        System.out.println("roomType is " +occ.getRoom().getRoomType());
+        String roomType = occ.getRoom().getRoomType();
+        String roomProp = occ.getRoom().getRoomProperties();
+        Date checkinD = occ.getCheckInDate();
+        Date checkoutD = occ.getCheckOutDate();
+
         Session session = getSession();
         String sql = "SELECT * " +
                 "FROM Room " +
@@ -66,19 +74,14 @@ public class occupancyServiceImpl implements occupancyService{
     }
 
     @Override
-    public Occupancy createOccupancy(long guestId, long itiId, long roomId, int numPerson, Date checkInDate, Date checkOutDate) {
+    public Occupancy createOccupancy(Occupancy occ){
         Occupancy new_occ = new Occupancy();
-        Collection<Guest> gstlst = new ArrayList<Guest>();
-        gstlst.add(gstService.findById(guestId));
-        new_occ.setNunOfPerson(numPerson);
-        new_occ.setRoomNumber(rmService.findById(roomId));
-        new_occ.setItinary(itiService.findItinary(itiId));
-        new_occ.setCheckInDate(checkInDate);
-        new_occ.setCheckOutDate(checkOutDate);
+        new_occ.setNunOfPerson(occ.getNunOfPerson());
+        new_occ.setRoom(rmService.findById(occ.getRoom().getId()));
+        new_occ.setItinary(itiService.findItinary(occ.getItinary().getItinaryID()));
+        new_occ.setCheckInDate(occ.getCheckInDate());
+        new_occ.setCheckOutDate(occ.getCheckOutDate());
         occdao.create(new_occ);
-        //Itinary iti = itiService.findItinary(itiId);
-        //iti.getOccupancies().add(new_occ);
-        //itiService.addOccToItinary(itiId,new_occ);
         return new_occ;
     }
 

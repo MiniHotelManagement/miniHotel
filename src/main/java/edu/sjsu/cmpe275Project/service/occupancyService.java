@@ -3,7 +3,6 @@ package edu.sjsu.cmpe275Project.service;
 import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.models.Room;
 
-import java.sql.Date;
 import java.util.Collection;
 
 /**
@@ -11,7 +10,9 @@ import java.util.Collection;
  */
 public interface occupancyService {
 
-    Collection<Room> searchAvlRoom(Date checkinD, Date checkoutD, String roomType, String roomProp);
-    Occupancy createOccupancy(long guestId, long itiId, long roomId, Date checkInDate, Date checkOutDate);
+    //Collection<Room> searchAvlRoom(Date checkinD, Date checkoutD, String roomType, String roomProp);
+    //Occupancy createOccupancy(long guestId, long itiId, long roomId, Date checkInDate, Date checkOutDate);
+    Collection<Room> searchAvlRoom(Occupancy o);
+    Occupancy createOccupancy(Occupancy occupancy);
     Occupancy findItinary(long occId);
 }

@@ -1,13 +1,8 @@
 package edu.sjsu.cmpe275Project.service;
 
 import edu.sjsu.cmpe275Project.dao.ItinaryDAO;
-import edu.sjsu.cmpe275Project.dao.roomDAO;
 import edu.sjsu.cmpe275Project.models.Guest;
 import edu.sjsu.cmpe275Project.models.Itinary;
-import edu.sjsu.cmpe275Project.models.Occupancy;
-import edu.sjsu.cmpe275Project.models.Room;
-import org.hibernate.Criteria;
-import org.hibernate.SQLQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +10,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * Created by dexterwei on 11/26/15.
@@ -38,10 +31,22 @@ public class ItinaryServiceImpl implements ItinaryService{
     @Override
     public Itinary createItinary(long guestId, double discont, double payment, Date payDate) {
         Itinary iti = new Itinary();
-        iti.setGuestID((Guest)getSession().get(Guest.class,guestId));
+        iti.setGuest((Guest) getSession().get(Guest.class, guestId));
         iti.setDiscount(discont);
         iti.setPayment(payment);
         iti.setPaymentDate(payDate);
+        itidao.create(iti);
+        return iti;
+    }
+
+    @Override
+    public Itinary createItinary(Itinary i) {
+        Itinary iti = new Itinary();
+        System.out.println("gestID is "+ i.getGuest().getId());
+        iti.setGuest((Guest) getSession().get(Guest.class, i.getGuest().getId()));
+        iti.setDiscount(i.getDiscount());
+        iti.setPayment(i.getPayment());
+        iti.setPaymentDate(i.getPaymentDate());
         itidao.create(iti);
         return iti;
     }
