@@ -2,9 +2,7 @@ package edu.sjsu.cmpe275Project.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Date;
+import java.sql.Date;
 
 /**
  * Created by dexterwei on 11/18/15.
