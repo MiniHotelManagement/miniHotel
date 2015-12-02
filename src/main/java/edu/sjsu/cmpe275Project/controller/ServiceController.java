@@ -1,5 +1,7 @@
 package edu.sjsu.cmpe275Project.controller;
 
+import edu.sjsu.cmpe275Project.models.Itinary;
+import edu.sjsu.cmpe275Project.models.Occupancy;
 import edu.sjsu.cmpe275Project.service.ItinaryService;
 import edu.sjsu.cmpe275Project.service.occupancyService;
 import edu.sjsu.cmpe275Project.service.roomService;
@@ -8,8 +10,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import java.sql.Date;
 
 /**
  * Created by dexterwei on 11/29/15.
@@ -26,16 +26,21 @@ public class ServiceController {
     private ItinaryService itinaryservice;
 
     //try this http://localhost:8080/room/search?checkinDate=2015-11-24&checkoutDate=2015-11-25&roomType=K&roomProp=SMK
-    @RequestMapping(value = "/room/search", method = RequestMethod.GET)
+    @RequestMapping(value = "/room/search", method = RequestMethod.POST)
     public
     @ResponseBody
     ResponseEntity<?> SearchRoom(
+            /*
             @RequestParam(value = "checkinDate", required = true) Date checkindate,
             @RequestParam(value = "checkoutDate", required = true) Date checkoutdate,
             @RequestParam(value = "roomType", required = true) String roomType,
             @RequestParam(value = "roomProp", required = true) String roomProp
+            */
+            @RequestBody Occupancy occupancy
     ){
-        return new ResponseEntity<>(occupancyservice.searchAvlRoom(checkindate,checkoutdate,roomType,roomProp), HttpStatus.OK);
+
+        System.out.println("Get room type is "+ occupancy.getRoom());
+        return new ResponseEntity<>(occupancyservice.searchAvlRoom(occupancy), HttpStatus.OK);
     }
 
     //create a guest first
@@ -44,12 +49,16 @@ public class ServiceController {
      public
      @ResponseBody
      ResponseEntity<?> createItinary(
+            /*
                     @RequestParam(value = "guestId", required = true) long guestId,
                     @RequestParam(value = "discount", required = true) double discont,
                     @RequestParam(value = "payment", required = true) double payment,
                     @RequestParam(value = "paymentDate", required = false) Date payDate
+                    */
+            @RequestBody Itinary iti
             ){
-        return new ResponseEntity<>(itinaryservice.createItinary(guestId,discont,payment,payDate), HttpStatus.OK);
+        //return new ResponseEntity<>(itinaryservice.createItinary(guestId,discont,payment,payDate), HttpStatus.OK);
+        return new ResponseEntity<>(itinaryservice.createItinary(iti), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/room/itinary/{id}", method = RequestMethod.GET)
@@ -66,15 +75,18 @@ public class ServiceController {
     public
     @ResponseBody
     ResponseEntity<?> createOcc(
+            /*
             @RequestParam(value = "guestId", required = true) long guestId,
             @RequestParam(value = "itinaryId", required = true) long itiId,
             @RequestParam(value = "roomId", required = true) long roomId,
             @RequestParam(value = "numPerson", required = true) int num,
             @RequestParam(value = "checkinDate", required = true) Date inDate,
-            @RequestParam(value = "checkoutDate", required = true) Date outDate
+            @RequestParam(value = "checkoutDate", required = true) Date outDate*/
+            @RequestBody Occupancy occ
     ){
-        return new ResponseEntity<>(occupancyservice.createOccupancy(guestId,itiId,roomId,num, inDate,outDate), HttpStatus.OK);
-    }
+        //return new ResponseEntity<>(occupancyservice.createOccupancy(guestId,itiId,roomId,num, inDate,outDate), HttpStatus.OK);}
+        return new ResponseEntity<>(occupancyservice.createOccupancy(occ), HttpStatus.OK);
+     }
 
     @RequestMapping(value = "/room/occupancy/{id}", method = RequestMethod.GET)
     public
