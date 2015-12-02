@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.sql.Date;
+
 /**
  * Created by dexterwei on 11/29/15.
  */
@@ -43,6 +45,16 @@ public class ServiceController {
         return new ResponseEntity<>(occupancyservice.searchAvlRoom(occupancy), HttpStatus.OK);
     }
 
+    //try this http://localhost:8080/room/report?date=2015-11-24
+    @RequestMapping(value = "/room/report", method = RequestMethod.GET)
+    public
+    @ResponseBody
+    ResponseEntity<?> SearchRoom(
+            @RequestParam(value = "date", required = true) Date date
+
+    ){
+        return new ResponseEntity<>(occupancyservice.RoomStatus(date), HttpStatus.OK);
+    }
     //create a guest first
     //then try http://localhost:8080/room/itinary?guestId=1&discount=0&payment=0&paymentDate=2015-11-27
     @RequestMapping(value = "/room/itinary", method = RequestMethod.POST)

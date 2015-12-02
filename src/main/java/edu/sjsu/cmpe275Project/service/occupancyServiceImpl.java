@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.Date;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -36,8 +37,8 @@ public class occupancyServiceImpl implements occupancyService{
         return sessionFactory.getCurrentSession();
     }
 
-    @Override
 
+    @Override
     public Collection<Room> searchAvlRoom(Occupancy occ) {
 
         System.out.println("roomType is " +occ.getRoom().getRoomType());
@@ -59,18 +60,39 @@ public class occupancyServiceImpl implements occupancyService{
         SQLQuery query = session.createSQLQuery(sql);
         query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
         List results = query.list();
-
-//        String hql = "SELECT roomId " +
-//                "FROM Room " +
-//                "WHERE NOT EXISTS(" +
-//                "SELECT room " +
-//                "FROM Occupancy " +
-//                "WHERE checkInDate <= \'"+checkinD.toString()+"\' and checkOutDate >= \'" + checkoutD.toString() +"\' and room=room" +
-//                ")";
-//
-//        Query query = session.createQuery(hql);
-//        List results = query.list();
         return results;
+    }
+
+    @Override
+    public Collection<List<Room>> RoomStatus(Date date) {
+        ArrayList<List<Room> > rst= new ArrayList<List<Room>>() ;
+        Session session = getSession();
+        String sql = "SELECT * " +
+                "FROM Room " +
+                "WHERE NOT EXISTS(" +
+                "SELECT roomId " +
+                "FROM Occupancy " +
+                "WHERE checkInDate <= \""+date.toString()+"\" and checkOutDate > \"" + date.toString() +
+                "\" and occupancy.roomNumber=room.roomId" +
+                ")";
+        SQLQuery query = session.createSQLQuery(sql);
+        query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        List results = query.list();
+        rst.add(results);
+
+        sql = "SELECT * " +
+                "FROM Room " +
+                "WHERE EXISTS(" +
+                "SELECT roomId " +
+                "FROM Occupancy " +
+                "WHERE checkInDate <= \""+date.toString()+"\" and checkOutDate > \"" + date.toString() +
+                "\" and occupancy.roomNumber=room.roomId" +
+                ")";
+        query = session.createSQLQuery(sql);
+        query.setResultTransformer(Criteria.ALIAS_TO_ENTITY_MAP);
+        List results2 = query.list();
+        rst.add(results2);
+        return rst;
     }
 
     @Override
