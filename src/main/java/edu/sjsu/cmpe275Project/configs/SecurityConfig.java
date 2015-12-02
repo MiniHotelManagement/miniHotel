@@ -18,14 +18,15 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-                .inMemoryAuthentication()
-                .withUser("admin").password("admin").roles("admin");
+        auth.inMemoryAuthentication().withUser("agent").password("agent123").roles("AGENT");
+        auth.inMemoryAuthentication().withUser("admin").password("admin456").roles("ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http.csrf().disable().authorizeRequests().antMatchers("/room/*").hasRole("admin").and().httpBasic();
+        http.csrf().disable().authorizeRequests().antMatchers("/", "/welcome").permitAll()
+                .antMatchers("/room/*").hasRole("admin").and().httpBasic();
+
 
 
         //super.configure(http);
