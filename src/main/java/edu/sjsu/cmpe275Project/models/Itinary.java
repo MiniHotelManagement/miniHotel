@@ -4,8 +4,6 @@ package edu.sjsu.cmpe275Project.models;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Collection;
 import java.sql.Date;
 
 /**
@@ -40,11 +38,11 @@ public class Itinary implements Serializable{
         this.itinaryID = itinaryID;
     }
 
-    public Guest getGuestID() {
+    public Guest getGuest() {
         return guest;
     }
 
-    public void setGuestID(Guest guest) {
+    public void setGuest(Guest guest) {
         this.guest = guest;
     }
 
