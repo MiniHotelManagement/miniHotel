@@ -8,8 +8,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.sql.Date;
-
 /**
  * Created by emy on 11/18/15.
  */
@@ -32,16 +30,20 @@ public class guestController {
     public
     @ResponseBody
     ResponseEntity<?> createGuest(
+            /*
             @RequestParam(value = "fname", required = true) String fname,
             @RequestParam(value = "lname", required = true) String lname,
             @RequestParam(value = "license", required = true) String license,
-            @RequestParam(value = "email", required = true) String email
+            @RequestParam(value = "email", required = true) String email*/
+            @RequestBody Guest gst
     ){
+        /*
         Guest gst = new Guest();
         gst.setFirstName(fname);
         gst.setLastName(lname);
         gst.setDriversLicense(license);
         gst.setEmail(email);
+        */
         return new ResponseEntity<>(guestdao.create(gst), HttpStatus.OK);
     }
 
