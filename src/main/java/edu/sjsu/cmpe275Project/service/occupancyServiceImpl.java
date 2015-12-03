@@ -103,6 +103,7 @@ public class occupancyServiceImpl implements occupancyService{
         new_occ.setItinary(itiService.findItinary(occ.getItinary().getItinaryID()));
         new_occ.setCheckInDate(occ.getCheckInDate());
         new_occ.setCheckOutDate(occ.getCheckOutDate());
+        new_occ.setStatus(occ.getStatus());
         occdao.create(new_occ);
         return new_occ;
     }

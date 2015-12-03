@@ -33,11 +33,19 @@ public class Occupancy implements Serializable {
     private Room room;
 
     private int NunOfPerson;
-
+    private int status; // 0:reserved 1:cheched-in 2:checked-out
 
     private Date checkInDate;
     private Date checkOutDate;
 
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
 
     public long getOccupancyID() {
         return occupancyID;

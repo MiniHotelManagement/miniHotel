@@ -54,6 +54,7 @@ public class OccupancyDAOImpl implements OccupancyDAO {
         curr_occ.setCheckOutDate(occ.getCheckOutDate());
         curr_occ.setRoom(occ.getRoom());
         curr_occ.setNunOfPerson(occ.getNunOfPerson());
+        curr_occ.setStatus(occ.getStatus());
         getSession().saveOrUpdate(curr_occ);
         return curr_occ;
     }
