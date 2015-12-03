@@ -34,7 +34,7 @@ public class Occupancy implements Serializable {
 
     private int NunOfPerson;
 
-    @Column(name="status", columnDefinition = "default 0")
+//    @Column(name="status", columnDefinition = "default 0")
     private int status; // 0:reserved 1:cheched-in 2:checked-out
 
     private Date checkInDate;
