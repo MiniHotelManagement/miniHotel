@@ -12,21 +12,22 @@ import org.springframework.security.config.annotation.web.servlet.configuration.
 /**
  * Created by emy on 11/16/15.
  */
+
 @Configuration
 @ComponentScan
 @EnableWebMvcSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
-        auth.inMemoryAuthentication().withUser("agent").password("agent123").roles("AGENT");
-        auth.inMemoryAuthentication().withUser("admin").password("admin456").roles("ADMIN");
+        auth.inMemoryAuthentication().withUser("agent").password("agent").roles("AGENT");
+        auth.inMemoryAuthentication().withUser("admin").password("admin").roles("ADMIN");
     }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable().authorizeRequests().antMatchers("/", "/welcome").permitAll()
                 .antMatchers("/guest/*").permitAll()
-                .antMatchers("/staff/room/*").hasRole("admin").and().httpBasic();
+                .antMatchers("/staff/room/*").hasRole("ADMIN").and().httpBasic();
 
 
 

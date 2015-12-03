@@ -1,7 +1,7 @@
 package edu.sjsu.cmpe275Project.controller;
 
-import edu.sjsu.cmpe275Project.dao.guestDAO;
 import edu.sjsu.cmpe275Project.models.Guest;
+import edu.sjsu.cmpe275Project.service.guestService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class guestController {
     @Autowired
-    private guestDAO guestdao;
+    private guestService guestservice;
 
     @RequestMapping(value={"/", "/welcome"}, method = RequestMethod.GET)
     public String homePage() {
@@ -44,7 +44,7 @@ public class guestController {
         gst.setDriversLicense(license);
         gst.setEmail(email);
         */
-        return new ResponseEntity<>(guestdao.create(gst), HttpStatus.OK);
+        return new ResponseEntity<>(guestservice.create(gst), HttpStatus.OK);
     }
 
     @RequestMapping(value = "/guest/{id}", method = RequestMethod.GET)
@@ -53,6 +53,6 @@ public class guestController {
     ResponseEntity<?> findGuest(
             @PathVariable("id") long id
     ){
-        return new ResponseEntity<>(guestdao.findById(id), HttpStatus.OK);
+        return new ResponseEntity<>(guestservice.findById(id), HttpStatus.OK);
     }
 }
