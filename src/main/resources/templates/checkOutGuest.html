@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>check out guest</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron checkOutGuest">
+
+        <h3 class="h3Heading">Request for following information from guest</h3>
+        <form class="form-horizontal" id="checkoutInfoReqForm">
+            <div class="form-group">
+                <label for="guestFullName" class="col-md-4">Guest Full Name</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="guestFullName"  name="guestFullName" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-md-4">Email</label>
+                <div class="col-md-8">
+                    <input type="email" class="form-control" id="email"  name="email" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" id="findGuestInfo">Find Guest Info</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="clear clearWithBorder"></div>
+        <h3 class="h3Heading">Information Found</h3>
+        <form class="form-horizontal" id="infoFoundForm">
+        <div class="form-group">
+            <label for="guestName" class="col-md-3">Guest Name</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="guestName"  name="guestName" disabled>
+            </div>
+            <label for="emailCheckOut" class="col-md-3">Email</label>
+            <div class="col-md-3">
+                <input type="email" class="form-control" id="emailCheckOut"  name="emailCheckOut" disabled>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="resId" class="col-md-3">Reservation Id</label>
+            <div class="col-md-3">
+                <input type="text" class="form-control" id="resId" name="resId" disabled>
+            </div>
+            <label for="dlNumReadOnly" class="col-md-3">Driver License #</label>
+            <div class="col-md-3">
+                <input type="number" class="form-control" id="dlNumReadOnly" min="0" name="dlNumReadOnly" disabled>
+            </div>
+        </div>
+            <div class="form-group">
+                <label for="numRooms" class="col-md-3">Rooms Booked</label>
+                <div class="col-md-3">
+                    <input type="number" class="form-control readable" id="numRooms"  name="numRooms" disabled>
+                </div>
+                <label for="discount" class="col-md-3">Discount Applied</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control readable" id="discount" name="discount" disabled>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" data-toggle="modal" data-target="#checkOutModal" id="guestCheckoutButton">CheckOut Guest</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal" id="checkOutModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">x</button>
+                    <h4 class="modal-title">Guest Checked Out</h4>
+                </div>
+                <div class="modal-body">
+                    <p>Email sent to the Guest with bill details</p>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-success" data-dismiss="modal">OK</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/bootstrap-formhelpers.min.js"></script>
+<script>
+    $("#checkoutInfoReqForm").validate({
+        rules: {
+            guestFullName:{
+                lettersonly:true
+            }
+        }
+    });
+
+    $.validator.addMethod( "lettersonly", function( value, element ) {
+        return this.optional( element ) || /^[a-zA-Z\s]*$/i.test( value );
+    }, "Letters only please" );
+
+    $("#checkoutInfoReqForm").submit(function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type: 'post',
+            dataType: 'json',
+            data: JSON.stringify({
+                guestName: $("#guestFullName").val(),
+                email: $("#email").val()
+            }),
+            contentType: 'application/json',
+            url: '',
+
+            success: function (dataRecieved) {
+                var dataRecieved = $.trim(dataRecieved);
+            }
+        });
+    });
+
+    $("#infoFoundForm").submit(function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:'post',
+            url:'',
+            dataType:'json',
+            data:JSON.stringify({
+                guestName: $("#guestName").val(),
+                email:$("#emailCheckOut").val(),
+                reservationId:$("#resId").val(),
+                dlNum:$("#dlNum").val(),
+                numRooms:$("#numRooms").val(),
+                discount:$("#discount").val()
+            }),
+            contentType: 'application/json',
+            success:function(dataRecieved){
+                var dataRecieved= $.trim(dataRecieved);
+            }
+        });
+    });
+</script>
+</html>

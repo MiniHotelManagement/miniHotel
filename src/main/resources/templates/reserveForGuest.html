@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>reserve for guest</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+<div class="container">
+    <h1 class="text-center">Guest Reservation</h1>
+    <div class="jumbotron resForGuest">
+        <h3 class="h3Heading">Request for following information from guest</h3>
+        <form class="form-horizontal" id="checkAvailabilityForm">
+            <div class="form-group">
+                <label for="email" class="col-md-3 control-label">Email</label>
+                <div class="col-md-3">
+                    <input type="email" class="form-control" name="email" id="email" required>
+                </div>
+                <label for="fullName" class="col-md-3 control-label">Full Name</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="fullName" pattern="[a-zA-Z][a-zA-Z ]+" name="fullname" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dlNum" class="col-md-3 control-label">Driver License Number</label>
+                <div class="col-md-3">
+                    <input type="number" min="0" class="form-control" id="dlNum" name="dlNum" required>
+                </div>
+                <label for="rescheckInDate" class="col-md-3 control-label">Check-in Date</label>
+                <div class="col-md-3">
+                    <input type="date" class="form-control" id="rescheckInDate" name="rescheckInDate" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="rescheckOutDate" class="col-md-3 control-label">Check-out Date</label>
+                <div class="col-md-3">
+                    <input type="date" name="rescheckOutDate" class="form-control" id="rescheckOutDate" required>
+                </div>
+                <label for="resroomsWanted" class="col-md-3 control-label">Rooms Wanted</label>
+                <div class="col-md-3">
+                    <input type="number" min="1" class="form-control" id="resroomsWanted" name="resroomsWanted" required>
+                </div>
+            </div>
+            <div class="form-group">
+
+                    <label for="roomType" class="col-md-4 control-label">Room Type</label>
+
+                    <div class=" col-md-4">
+                        <label for="smoking">
+                            <input type="radio" name="roomType" id="smoking" required> Smoking
+                        </label>
+                    </div>
+                    <div class=" col-md-4">
+                        <label for="nonSmoking">
+                            <input type="radio" name="roomType" id="nonSmoking">Non-Smoking
+                        </label>
+                    </div>
+                </div>
+
+
+            <div class="form-group">
+                <h4 class="col-md-2 control-label">Billing Address</h4>
+            </div>
+
+            <div class="form-group">
+                <label for="street" class="col-md-3 control-label">Street</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="street" name="street" required>
+                </div>
+                <label for="city" class="col-md-3 control-label">City</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="city" name="city" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="state" class="col-md-3 control-label">State</label>
+                <div class="col-md-3">
+                    <select id="state" class="input-medium bfh-states" data-country="US" data-state="CA" name="city"></select>
+                </div>
+                <label for="zip" class="col-md-3 control-label">Zipcode</label>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" id="zip" name="zip" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-6">
+                    <button type="submit" class="btn btn-success">Reserve</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/bootstrap-formhelpers.min.js"></script>
+
+<script>
+    $("#checkAvailabilityForm").validate();
+
+    $("#checkAvailabilityForm").submit(function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:'post',
+            url:'',
+            dataType:'json',
+            data: JSON.stringify({
+                email: $("#email").val(),
+                fullName: $("#fullName").val(),
+                dlNum:$("#dlNum").val(),
+                checkInDate:$("#rescheckInDate").val(),
+                checkOutDate:$("#rescheckOutDate").val(),
+                roomsWanted:$("#resroomsWanted").val(),
+                roomType: $("input[name=roomType]:checked").val(),
+                street: $("#street").val(),
+                city:$("#city").val(),
+                state: $("#state option:selected").text(),
+                zip:$("#zip").val()
+            }),
+            contentType: 'application/json',
+            success: function(dataRecieved){
+                var dataRecieved= $.trim(dataRecieved);
+            }
+        });
+    });
+</script>
+</html>

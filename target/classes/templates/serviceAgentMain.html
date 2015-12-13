@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.springframework.org/schema/jdbc">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>service agent main</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="/static/css/styles.css" th:href="@{css/styles.css}"/>
+</head>
+<body>
+<div class="navbar navbar-inverse">
+    <div class="container">
+        <div class="navbar-header">
+            <a href="index.html" class="navbar-brand" id="navbarLogo">Mini Hotel</a>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a id="checkInGuest" href="#">Check In Guest</a></li>
+                <li><a href="#" id="checkOutGuest">Check Out Guest</a> </li>
+                <li><a href="#" id="reserveForGuest">Reserve For Guest</a> </li>
+                <li><a href="#" id="reports">View Reports</a> </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="mainContainer">
+
+</div>
+
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" th:src="@{webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script src="/static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
+<script>
+
+    /*will load first by default*/
+    $("#mainContainer").load("checkInGuest.html");
+
+    $("#checkInGuest").click(function(){
+        $("ul li").removeClass("active");
+        $(this).parent().addClass("active");
+        $("#mainContainer").load("checkInGuest.html");
+    });
+
+    $("#checkOutGuest").click(function(){
+        $("ul li").removeClass("active");
+        $(this).parent().addClass("active");
+       $("#mainContainer").load("checkOutGuest.html");
+    });
+
+    $("#changeReservation").click(function(){
+        $("ul li").removeClass("active");
+        $(this).parent().addClass("active");
+        $("#mainContainer").load("changeReservation.html");
+    });
+
+    $("#reserveForGuest").click(function(){
+        $("ul li").removeClass("active");
+        $(this).parent().addClass("active");
+        $("#mainContainer").load("reserveForGuest.html");
+    });
+
+    $("#reports").click(function(){
+       $("ul li").removeClass("active");
+        $(this).parent().addClass("active");
+        $("#mainContainer").load("reports.html");
+    });
+
+</script>
+</html>

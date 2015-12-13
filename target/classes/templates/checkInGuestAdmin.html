@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>check in guest admin</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron checkInGuest">
+        <h3 class="h3Heading">Request for following information from guest</h3>
+        <form class="form-horizontal" id="adminGuestCheckin">
+            <div class="form-group">
+                <label for="reservationId" class="col-md-4">Reservation Id</label>
+                <div class="col-md-8">
+                    <input type="text" class="form-control" id="reservationId" name="reservationId" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="dlNum" class="col-md-4">Driver License #</label>
+                <div class="col-md-8">
+                    <input type="number" class="form-control" id="dlNum" min="0" name="dlNum" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" id="findResButton">Find Reservation</button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Form when info is found. Initially all fields are disabled-->
+        <div class="clear clearWithBorder"></div>
+        <h3 class="h3Heading">Information Found</h3>
+        <form class="form-horizontal" id="infoFoundForm">
+
+            <div class="form-group">
+                <label for="resId" class="col-md-3">Reservation Id</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="resId" name="resId" disabled>
+                </div>
+                <label for="dlNumReadOnly" class="col-md-3">Driver License #</label>
+                <div class="col-md-3">
+                    <input type="number" class="form-control" id="dlNumReadOnly" min="0" name="dlNumReadOnly" disabled>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="guestFullName" class="col-md-3">Guest Full Name</label>
+                <div class="col-md-3">
+                    <input type="text" class="form-control" id="guestFullName"  name="guestFullName" disabled>
+                </div>
+                <label for="email" class="col-md-3">Email</label>
+                <div class="col-md-3">
+                    <input type="email" class="form-control" id="email"  name="email" disabled>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="numRooms" class="col-md-3">Rooms Booked</label>
+                <div class="col-md-3">
+                    <input type="number" class="form-control readable" id="numRooms"  name="numRooms" required>
+                </div>
+                <label for="roomType" class="col-md-1">Room Type</label>
+
+                <div class=" col-md-2">
+                    <label for="smoking">
+                        <input type="radio" name="roomType" id="smoking" class="roomType readable" required> Smoking
+                    </label>
+                </div>
+                <div class=" col-md-3">
+                    <label for="nonSmoking">
+                        <input type="radio" name="roomType" id="nonSmoking" class="roomType readable" >Non-Smoking
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="discount" class="col-md-3">Discount</label>
+                <div class="col-md-3">
+                    <select class="form-control readable" id="discount" required>
+                        <option selected>0%</option>
+                        <option>10%</option>
+                        <option>20%</option>
+                        <option>30%</option>
+                        <option>50%</option>
+                        <option>75%</option>
+                        <option>90%</option>
+                        <option>100%</option>
+                    </select>
+                </div>
+                <label for="checkInDate" class="col-md-3">CheckIn Date</label>
+                <div class="col-md-3">
+                    <input type="date" class="form-control readable" id="checkInDate"  name="checkInDate" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="checkOutDate" class="col-md-3">CheckOut Date</label>
+                <div class="col-md-9">
+                    <input type="date" class="form-control readable" id="checkOutDate"  name="checkOutDate" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success" id="roomOrdButton">Confirm Room Order</button>
+                </div>
+            </div>
+        </form>
+
+        <div class="clear clearWithBorder"></div>
+        <h3 class="h3Heading">Final Room Order</h3>
+        <form class="form-horizontal">
+            <div class="form-group">
+                <label for="perInEachRoom" class="col-md-12">Number of people in each room</label>
+                <div class="col-md-8 " id="perInEachRoom">
+
+                </div>
+                <div class="form-group">
+                    <div class="col-md-2">
+                        <button type="submit" class="btn btn-success" id="checkInButton">Check In</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>
+</body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="js/jquery.validate.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+
+    $("#adminGuestCheckin").validate();
+
+    $("#adminGuestCheckin").submit(function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:'post',
+            url: '',
+            dataType:'json',
+            data:JSON.stringify({
+                reservationId: $("#reservationId").val(),
+                dlNum:$("#dlNum").val()
+            }),
+            contentType:'application/json',
+            success: function(dataRecieved){
+                /*recieved */
+                var dataRecieved= $.trim(dataRecieved);
+            }
+        });
+    });
+    $("#findResButton").click(function(e){
+       // e.preventDefault();
+       // $(".readable").prop("disabled",false);
+    });
+
+    $("#infoFoundForm").validate();
+    $("#infoFoundForm").submit(function(e){
+        e.preventDefault();
+
+        $.ajax({
+            type:'post',
+            dataType:'json',
+            url:'',
+            data:JSON.stringify({
+                numberOfRooms:$("#numRooms").val(),
+                roomType:$("input[name=roomType]:checked").val(),
+                discount:$("#discount option:selected").val(),
+                checkInDate:$("#checkInDate").val(),
+                checkOutDate:$("#checkOutDate").val(),
+            }),
+            contentType: 'application/json',
+            success:function(dataRecieved){
+                var dataRecieved= $.trim(dataRecieved);
+            }
+        });
+    });
+
+    $("#roomOrdButton").click(function(){
+        var numberOfRooms=$("#numRooms").val();
+        var counter=0;
+        var container=$('<div/>');
+        for(counter=1;counter<=numberOfRooms;counter++){
+            container.append('<label for="room">Room '+counter+'</label><input type="number" class="form-control readable"  name="checkInDate" />');
+        }
+        $("#perInEachRoom").html(container);
+    });
+
+    $("#checkInButton").click(function(){
+        $("#perInEachRoom").html("Guest Checked in").show().fadeOut(3000);
+    });
+
+</script>
+</html>
