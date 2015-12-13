@@ -32,12 +32,6 @@ public class ServiceController {
     public
     @ResponseBody
     ResponseEntity<?> SearchRoom(
-            /*
-            @RequestParam(value = "checkinDate", required = true) Date checkindate,
-            @RequestParam(value = "checkoutDate", required = true) Date checkoutdate,
-            @RequestParam(value = "roomType", required = true) String roomType,
-            @RequestParam(value = "roomProp", required = true) String roomProp
-            */
             @RequestBody Occupancy occupancy
     ){
 
@@ -61,12 +55,6 @@ public class ServiceController {
      public
      @ResponseBody
      ResponseEntity<?> createItinary(
-            /*
-                    @RequestParam(value = "guestId", required = true) long guestId,
-                    @RequestParam(value = "discount", required = true) double discont,
-                    @RequestParam(value = "payment", required = true) double payment,
-                    @RequestParam(value = "paymentDate", required = false) Date payDate
-                    */
             @RequestBody Itinary iti
             ){
         //return new ResponseEntity<>(itinaryservice.createItinary(guestId,discont,payment,payDate), HttpStatus.OK);
@@ -87,13 +75,6 @@ public class ServiceController {
     public
     @ResponseBody
     ResponseEntity<?> createOcc(
-            /*
-            @RequestParam(value = "guestId", required = true) long guestId,
-            @RequestParam(value = "itinaryId", required = true) long itiId,
-            @RequestParam(value = "roomId", required = true) long roomId,
-            @RequestParam(value = "numPerson", required = true) int num,
-            @RequestParam(value = "checkinDate", required = true) Date inDate,
-            @RequestParam(value = "checkoutDate", required = true) Date outDate*/
             @RequestBody Occupancy occ
     ){
         //return new ResponseEntity<>(occupancyservice.createOccupancy(guestId,itiId,roomId,num, inDate,outDate), HttpStatus.OK);}
