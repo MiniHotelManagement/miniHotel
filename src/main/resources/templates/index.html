@@ -18,12 +18,12 @@
 <div class="jumbotron" id="buttonArea">
     <h2 class="text-center">Pick One</h2>
     <a class="btn btn-warning center-block" href="guest.html" role="button">Guest</a><br/>
-    <a class="btn btn-warning center-block" data-toggle="modal" href="#saModal" role="button">Service Agent</a><br/>
-    <a class="btn btn-warning center-block" data-toggle="modal" href="#adminModal" role="button">Admin</a><br/>
+    <a class="btn btn-warning center-block" href="login.html" role="button">Service Agent</a><br/>
+    <a class="btn btn-warning center-block" href="login.html" role="button">Admin</a><br/>
 </div>
 
     <!--login for service agent -->
-    <div class="modal" id="saModal">
+    <!--<div class="modal" id="saModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -50,12 +50,13 @@
                     <button type="submit" class="btn btn-success" id="login">Login</button>
                     <button class="btn btn-default" data-dismiss="modal">Cancel</button>
                 </div>
+
             </div>
         </div>
-    </div>
+    </div>-->
 
     <!--login for admin -->
-    <div class="modal" id="adminModal">
+    <!--<div class="modal" id="adminModal">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -84,18 +85,20 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>-->
 </div>
 </body>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" th:src="@{webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js" th:src="@{webjars/jquery/2.1.4/jquery.min.js}"></script>
 <script src="/static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
 
 <script>
-
-    /*for service agent login*/
+    /*/!*<![CDATA[*!/
+    /!*for service agent login*!/
     $("#login").click(function(){
-        /*hardcoding username and password just for the testing purpose*/
+        //alert("login clicked");
+        console.log("login clicked");
+        /!*hardcoding username and password just for the testing purpose*!/
         var username=$("#username").val();
         var password=$("#password").val();
         console.log(username+" "+password);
@@ -105,9 +108,10 @@
 
     });
 
-    /*for service agent login*/
-    $("#loginAd").click(function(){
-        /*hardcoding username and password just for the testing purpose*/
+    /!*for admin login*!/
+    $(document).on("click", "#loginAd",function(){
+        /!*hardcoding username and password just for the testing purpose*!/
+        console.log("admin clicked");
         var username=$("#usernameAd").val();
         var password=$("#passwordAd").val();
         console.log(username+" "+password);
@@ -116,6 +120,6 @@
         }
 
     });
-
+    /!*]]>*!/*/
 </script>
 </html>

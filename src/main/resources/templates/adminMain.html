@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>admin main</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="/static/css/styles.css" th:href="@{css/styles.css}" />
 </head>
 <body>
 <div class="navbar navbar-inverse">
@@ -38,9 +38,9 @@
 </div>
 
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" th:src="@{webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script src="/static/js/jquery.validate.min.js" th:src="@{js/jquery.validate.min.js}"></script>
+<script src="/static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
 <script>
 
     /*will load first by default*/

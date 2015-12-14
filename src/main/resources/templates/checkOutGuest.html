@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>check out guest</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>admin main</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="/static/css/styles.css" th:href="@{css/styles.css}" />
 </head>
 <body>
 <div class="container">
@@ -16,13 +16,13 @@
             <div class="form-group">
                 <label for="guestFullName" class="col-md-4">Guest Full Name</label>
                 <div class="col-md-8">
-                    <input type="text" class="form-control" id="guestFullName"  name="guestFullName" required>
+                    <input type="text" class="form-control" id="guestFullName"  name="guestFullName" required="required" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="email" class="col-md-4">Email</label>
                 <div class="col-md-8">
-                    <input type="email" class="form-control" id="email"  name="email" required>
+                    <input type="email" class="form-control" id="email"  name="email" required="required" />
                 </div>
             </div>
             <div class="form-group">
@@ -38,31 +38,31 @@
         <div class="form-group">
             <label for="guestName" class="col-md-3">Guest Name</label>
             <div class="col-md-3">
-                <input type="text" class="form-control" id="guestName"  name="guestName" disabled>
+                <input type="text" class="form-control" id="guestName"  name="guestName" disabled="disabled" />
             </div>
             <label for="emailCheckOut" class="col-md-3">Email</label>
             <div class="col-md-3">
-                <input type="email" class="form-control" id="emailCheckOut"  name="emailCheckOut" disabled>
+                <input type="email" class="form-control" id="emailCheckOut"  name="emailCheckOut" disabled="disabled" />
             </div>
         </div>
         <div class="form-group">
             <label for="resId" class="col-md-3">Reservation Id</label>
             <div class="col-md-3">
-                <input type="text" class="form-control" id="resId" name="resId" disabled>
+                <input type="text" class="form-control" id="resId" name="resId" disabled="disabled" />
             </div>
             <label for="dlNumReadOnly" class="col-md-3">Driver License #</label>
             <div class="col-md-3">
-                <input type="number" class="form-control" id="dlNumReadOnly" min="0" name="dlNumReadOnly" disabled>
+                <input type="number" class="form-control" id="dlNumReadOnly" min="0" name="dlNumReadOnly" disabled="disabled" />
             </div>
         </div>
             <div class="form-group">
                 <label for="numRooms" class="col-md-3">Rooms Booked</label>
                 <div class="col-md-3">
-                    <input type="number" class="form-control readable" id="numRooms"  name="numRooms" disabled>
+                    <input type="number" class="form-control readable" id="numRooms"  name="numRooms" disabled="disabled" />
                 </div>
                 <label for="discount" class="col-md-3">Discount Applied</label>
                 <div class="col-md-3">
-                    <input type="text" class="form-control readable" id="discount" name="discount" disabled>
+                    <input type="text" class="form-control readable" id="discount" name="discount" disabled="disabled" />
                 </div>
             </div>
             <div class="form-group">
@@ -90,10 +90,10 @@
     </div>
 </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/bootstrap-formhelpers.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" th:src="@{webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script src="/static/js/jquery.validate.min.js" th:src="@{js/jquery.validate.min.js}"></script>
+<script src="/static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
+<script src="/static/js/bootstrap-formhelpers.min.js" th:src="@{js/bootstrap-formhelpers.min.js}"></script>
 <script>
     $("#checkoutInfoReqForm").validate({
         rules: {

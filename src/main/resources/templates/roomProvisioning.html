@@ -1,12 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
-    <meta charset="UTF-8">
-    <title>Room Provisioning</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>check in guest</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Landing Page</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="/static/css/styles.css" th:href="@{css/styles.css}"/>
 </head>
 <body>
 <div class="container">
@@ -17,13 +16,13 @@
         <div class="form-group">
             <label for="roomNum" class="col-md-2">Room Number</label>
             <div class="col-md-6">
-                <input type="number" min="100" class="form-control" id="roomNum" name="roomNum" required>
+                <input type="number" min="100" class="form-control" id="roomNum" name="roomNum" required="required" />
             </div>
         </div>
             <div class="form-group">
                 <label for="roomType" class="col-md-2">Room Type</label>
                 <div class="col-md-6">
-                    <select class="form-control" id="roomType" required>
+                    <select class="form-control" id="roomType" required="required" />
                         <option selected>Two Queen Beds</option>
                         <option>One King Bed</option>
                     </select>
@@ -33,7 +32,7 @@
                 <label for="roomOptions" class="col-md-2">Room Options</label>
                 <div class=" col-md-2">
                     <label for="smoking">
-                        <input type="radio" name="roomOptions" id="smoking" class="roomOptions readable" required> Smoking
+                        <input type="radio" name="roomOptions" id="smoking" class="roomOptions readable" required="required"> Smoking
                     </label>
                 </div>
                 <div class=" col-md-2">
@@ -54,7 +53,7 @@
             <div class="form-group">
                 <label for="deleteRoom" class="col-md-2">Room Number</label>
                 <div class="col-md-6">
-                    <input type="number" min="100" class="form-control" id="deleteRoom" name="roomNum" required>
+                    <input type="number" min="100" class="form-control" id="deleteRoom" name="roomNum" required="required" />
                 </div>
             </div>
             <div class="form-group">
@@ -66,9 +65,10 @@
     </div>
 </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" th:src="@{webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script src="/static/js/jquery.validate.min.js" th:src="@{js/jquery.validate.min.js}"></script>
+<script src="/static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
+<script src="/static/js/bootstrap-formhelpers.min.js" th:src="@{js/bootstrap-formhelpers.min.js}"></script>
 <script>
 $("#addRoomForm").validate();
 
@@ -80,7 +80,6 @@ $("#deleteRoomForm").validate();
     $("#deleteRoomForm").submit(function(e){
         e.preventDefault();
     });
-
 
 </script>
 </html>

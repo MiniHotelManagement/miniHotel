@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.springframework.org/schema/data/jaxb">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>check in guest admin</title>
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>admin main</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
+    <link rel="stylesheet" href="/static/css/styles.css" th:href="@{css/styles.css}" />
 </head>
 <body>
 <div class="container">
@@ -15,13 +15,13 @@
             <div class="form-group">
                 <label for="reservationId" class="col-md-4">Reservation Id</label>
                 <div class="col-md-8">
-                    <input type="text" class="form-control" id="reservationId" name="reservationId" required>
+                    <input type="text" class="form-control" id="reservationId" name="reservationId" required="required" />
                 </div>
             </div>
             <div class="form-group">
                 <label for="dlNum" class="col-md-4">Driver License #</label>
                 <div class="col-md-8">
-                    <input type="number" class="form-control" id="dlNum" min="0" name="dlNum" required>
+                    <input type="number" class="form-control" id="dlNum" min="0" name="dlNum" required="required" />
                 </div>
             </div>
             <div class="form-group">
@@ -39,35 +39,35 @@
             <div class="form-group">
                 <label for="resId" class="col-md-3">Reservation Id</label>
                 <div class="col-md-3">
-                    <input type="text" class="form-control" id="resId" name="resId" disabled>
+                    <input type="text" class="form-control" id="resId" name="resId" disabled="disabled" />
                 </div>
                 <label for="dlNumReadOnly" class="col-md-3">Driver License #</label>
                 <div class="col-md-3">
-                    <input type="number" class="form-control" id="dlNumReadOnly" min="0" name="dlNumReadOnly" disabled>
+                    <input type="number" class="form-control" id="dlNumReadOnly" min="0" name="dlNumReadOnly" disabled="disabled" />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="guestFullName" class="col-md-3">Guest Full Name</label>
                 <div class="col-md-3">
-                    <input type="text" class="form-control" id="guestFullName"  name="guestFullName" disabled>
+                    <input type="text" class="form-control" id="guestFullName"  name="guestFullName" disabled="disabled" />
                 </div>
                 <label for="email" class="col-md-3">Email</label>
                 <div class="col-md-3">
-                    <input type="email" class="form-control" id="email"  name="email" disabled>
+                    <input type="email" class="form-control" id="email"  name="email" disabled="disabled" />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="numRooms" class="col-md-3">Rooms Booked</label>
                 <div class="col-md-3">
-                    <input type="number" class="form-control readable" id="numRooms"  name="numRooms" required>
+                    <input type="number" class="form-control readable" id="numRooms"  name="numRooms" required="required" />
                 </div>
                 <label for="roomType" class="col-md-1">Room Type</label>
 
                 <div class=" col-md-2">
                     <label for="smoking">
-                        <input type="radio" name="roomType" id="smoking" class="roomType readable" required> Smoking
+                        <input type="radio" name="roomType" id="smoking" class="roomType readable" required="required"> Smoking
                     </label>
                 </div>
                 <div class=" col-md-3">
@@ -79,7 +79,7 @@
             <div class="form-group">
                 <label for="discount" class="col-md-3">Discount</label>
                 <div class="col-md-3">
-                    <select class="form-control readable" id="discount" required>
+                    <select class="form-control readable" id="discount" required="required" >
                         <option selected>0%</option>
                         <option>10%</option>
                         <option>20%</option>
@@ -92,14 +92,14 @@
                 </div>
                 <label for="checkInDate" class="col-md-3">CheckIn Date</label>
                 <div class="col-md-3">
-                    <input type="date" class="form-control readable" id="checkInDate"  name="checkInDate" required>
+                    <input type="date" class="form-control readable" id="checkInDate"  name="checkInDate" required="required" />
                 </div>
             </div>
 
             <div class="form-group">
                 <label for="checkOutDate" class="col-md-3">CheckOut Date</label>
                 <div class="col-md-9">
-                    <input type="date" class="form-control readable" id="checkOutDate"  name="checkOutDate" required>
+                    <input type="date" class="form-control readable" id="checkOutDate"  name="checkOutDate" required="required" />
                 </div>
             </div>
 
@@ -129,9 +129,9 @@
     </div>
 </div>
 </body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script src="js/jquery.validate.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" th:src="@{webjars/jquery/2.1.4/jquery.min.js}"></script>
+<script src="/static/js/jquery.validate.min.js" th:src="@{js/jquery.validate.min.js}"></script>
+<script src="/static/js/bootstrap.min.js" th:src="@{js/bootstrap.min.js}"></script>
 <script>
 
     $("#adminGuestCheckin").validate();
